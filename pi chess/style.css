@@ -1,0 +1,205 @@
+*{
+    font-family: 'Segoe UI';
+}
+
+body {
+    background: url(./chess-background.jpg);
+    background-size: cover;
+    margin: 0;
+}   
+
+.header {
+    width: 100%;
+    background-color: whitesmoke;
+    border-bottom: 5px solid #000000;
+}
+
+.container2 {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    /* flex-direction: column; */
+}
+
+.header img {
+    width: 220px;
+}
+
+.header .container {
+    justify-content: space-between;
+    align-items: center; 
+    height: 150px;
+}
+
+li b {
+    color: #2d9c17;
+}
+
+ul img {
+    width: 100px;
+    height: 100px;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+a:hover {
+    color: #35c119;
+    transition: 0.3s all;
+} 
+
+.banner {
+    width: 100%;
+    height: 600px;
+    /* background-color: rgba(0, 0, 0, 0.33); */
+}
+
+.banner .container {
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.banner .container p {
+    color: #ffffff;
+    font-size: 40px;
+    width: 300px;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+}
+
+p span {
+    font-weight: 800;
+    color: #f4e2cc;
+    -webkit-text-stroke-color: #2a2016;
+    -webkit-text-stroke-width: 1px;
+}
+
+.social {
+    background-color: #a7a19c;
+    height: 550px;
+}
+
+.card {
+    background-color: whitesmoke;
+    border-radius: 5px;
+    box-shadow:  10px 15px 10px #444242;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+.social .container {
+    justify-content: space-around;
+    text-align: end;
+}
+
+.container h1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+
+.card h4 {
+    color: #000000;
+}
+
+.card p {
+    width: 300px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(0, 0, 0);
+}
+
+.nossoSis {  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #271d13;
+    color: whitesmoke;
+    font-weight: 800;
+    text-shadow: 5px 5px 10px #625e5e;
+}
+
+.nossoSis2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #000000;
+    font-weight: 800;
+}
+
+/* FOOTER */
+
+.footer {
+    background-color: #0c7033;
+    height: 100px;
+    color: #fff;
+    display: flex;
+    font-size: 15px;
+}
+
+  .footer .container {
+      justify-content: center;
+    text-align: center;
+}
+
+.footer .container .version {
+    font-size: 12px;
+}
+      
+.navBar {
+    width: 450px;
+    display: flex;
+    list-style: none;
+    color: #2a2016;
+    justify-content: space-between;
+    font-size: 17px;
+    padding: 40px 40px 40px 40px;
+}
+
+#div_erros_login {
+    display: none
+  }
+  
+  .alerta_erro{
+    display: flex;
+    justify-content: center;
+
+  }
+  
+  .card_erro {
+    display: none;
+    background-color: #a14242;
+    color: black;
+    width: 230px;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: #000000 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }
