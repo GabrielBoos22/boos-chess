@@ -1,12 +1,12 @@
-*{
+* {
     font-family: 'Segoe UI';
 }
 
 body {
-    background: url(./chess-background.jpg);
+    background: url(../chess-background.jpg);
     background-size: cover;
     margin: 0;
-}   
+}
 
 .header {
     width: 100%;
@@ -27,12 +27,12 @@ body {
 }
 
 .header img {
-    width: 220px;
+    width: 60px;
 }
 
 .header .container {
     justify-content: space-between;
-    align-items: center; 
+    align-items: center;
     height: 150px;
 }
 
@@ -53,7 +53,7 @@ a {
 a:hover {
     color: #35c119;
     transition: 0.3s all;
-} 
+}
 
 .banner {
     width: 100%;
@@ -90,7 +90,7 @@ p span {
 .card {
     background-color: whitesmoke;
     border-radius: 5px;
-    box-shadow:  10px 15px 10px #444242;
+    box-shadow: 10px 15px 10px #444242;
 }
 
 .card img {
@@ -127,7 +127,7 @@ p span {
     color: rgb(0, 0, 0);
 }
 
-.nossoSis {  
+.nossoSis {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -151,22 +151,22 @@ p span {
 /* FOOTER */
 
 .footer {
-    background-color: #0c7033;
+    background-color: black;
     height: 100px;
     color: #fff;
     display: flex;
     font-size: 15px;
 }
 
-  .footer .container {
-      justify-content: center;
+.footer .container {
+    justify-content: center;
     text-align: center;
 }
 
 .footer .container .version {
     font-size: 12px;
 }
-      
+
 .navBar {
     width: 450px;
     display: flex;
@@ -179,15 +179,15 @@ p span {
 
 #div_erros_login {
     display: none
-  }
-  
-  .alerta_erro{
+}
+
+.alerta_erro {
     display: flex;
     justify-content: center;
 
-  }
-  
-  .card_erro {
+}
+
+.card_erro {
     display: none;
     background-color: #a14242;
     color: black;
@@ -197,9 +197,9 @@ p span {
     border: #000000 3px solid;
     padding: 10px;
     margin-right: 10%;
-  }
-  
-  .card_erro #mensagem_erro{
+}
+
+.card_erro #mensagem_erro {
     font-weight: 500;
     font-size: 20px;
-  }
+}

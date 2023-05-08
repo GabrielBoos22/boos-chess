@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CADASTRO - FungusTech</title>
+   
+
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="stylesheet" href="./css/formulario-estilo-cadastro.css">
+</head>
+
+<body>
+    <!-- Nosso cabeçalho -->
+    <div class="header">
+        <div class="container">
+            <ul class="navBar">
+                <li> <a href="./index.html">Home</a></li>
+                <li><a href="./calculadora.html">Simulador</a></li>
+                <li> <a href="./login.html">Login</a> </li>
+                <li id="aqui"><a href="./calculadora.html"><b>Cadastro</b></a></li>
+                <li ><a href="./duvida.html">Fale Conosco</a></li>
+            </ul>
+
+            <h1 class="titulo"><img src="./chess.png"></h1>
+        </div>
+
+    </div>
+
+    <!-- Começo do Banner -->
+
+    <div class="banner">
+        <div class="container">
+            <div class="container2">
+                <div class="caixa_formulario">
+                    <h1>Cadastro</h1>
+                    <div class="formulario">
+    
+                        <span>Nome:</span>
+                        <input id="name_input" type="name" placeholder="Seu nome">
+                        <span>E-mail:</span>
+                        <input id="email_input" type="email" placeholder="Seu E-mail">
+                        <span>Senha:</span>
+                        <input id="senha_input" type="password" placeholder="*****">
+                        <span>Confirme a senha:</span>
+                        <input id="confirmacaoSenha_input" type="password" placeholder="*****">
+
+                        <li class="check">
+                            <input type="checkbox" id="checkbox">
+                            <label><u>Concordo com os termos de uso.</u>
+                            </label>
+                        </li>  
+
+                        <button onclick="cadastrar()">Cadastrar</button>
+                         
+                    </div>
+                </div>
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+          <h4>Copyright by FungusTech &copy; 2023</h4>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar () {
+        var nome = name_input.value
+        var email = email_input.value
+        var senha = senha_input.value
+        var confirmeSenha = confirmacaoSenha_input.value
+
+        
+
+    if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" ) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
+            setInterval(sumirMensagem,5000)
+
+        } else if(checkbox.checked == false) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O termo de uso precisa ser assinado";
+            setInterval(sumirMensagem,5000)
+        }else if (email.indexOf('@') < 0) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O e-mail está com o formato inválido";
+            setInterval(sumirMensagem, 5000)
+        } else if (senha.length < 6) {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
+            setInterval(sumirMensagem,5000)
+        }  else {
+            window.location = "./login.html"
+            fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nome,
+                emailServer: email,
+                senhaServer: senha,
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+
+                limparFormulario();
+              
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+        }
+    
+
+    
+</script>

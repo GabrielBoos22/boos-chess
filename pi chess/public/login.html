@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN - FungusTech</title>
+
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/formulario-estilo.css">
+</head>
+
+<body>
+    <!--  -->
+    <div class="header">
+        <div class="container">
+            <ul class="navBar">
+                <li> <a href="./index.html">Home</a></li>
+                <li><a href="./calculadora.html">Simulador</a></li>
+                <li id="aqui"><a href="login.html"><b>Login</b></a> </li>
+                <li> <a href="./cadastro.html">Cadastro</a></li>
+                <li ><a href="./duvida.html">Fale Conosco</a></li>
+            </ul>
+
+            <h1 class="titulo"><img src="./chess.png"></h1>
+        </div>
+    </div>
+
+    <!-- Começo do Banner -->
+
+    <div class="banner">
+        
+        <div class="container">
+            <div class="container2">
+                <div class="caixa_formulario">
+                    <h1>Olá de volta!</h1>
+                    <div class="formulario">
+    
+                        <span>E-mail:</span>
+                        <input id="email_input" type="email" placeholder="Seu E-mail">
+    
+                        <span>Senha:</span>
+                        <input id="senha_input" type="password" placeholder="*****">
+    
+                        <button onclick="entrar()">Entrar</button>
+                    </div>
+                </div>
+    
+                <div class="alerta_erro">
+                    <div class="card_erro" id="cardErro">
+                        <span id="mensagem_erro"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   
+
+  
+
+    <!-- Fim do Banner -->
+
+    <div class="footer">
+        <div class="container">
+          <h4>Copyright by FungusTech &copy; 2023</h4>
+          <span class="version">v1.0.0</span>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+
+<script>
+    function entrar () {
+        var email = email_input.value
+        var senha = senha_input.value
+
+        var emailCorreto = "fungustech@sptech.school";
+        var senhaCorreta = "teste";
+
+
+        if (email == "" || senha == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
+
+        } else {
+            fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: email,
+                senhaServer: senha
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id;
+
+                    cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+
+                    setTimeout(function () {
+                        window.location = "./graficos.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login");
+
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O Login está inválido";
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O Login está inválido";
+        })          
+        }
+    
+}
+</script>
+
