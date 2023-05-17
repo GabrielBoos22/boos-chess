@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco BoosChess</title>
+
+    <!-- Aqui colocamos o link para o arquivo de estilização-->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <link rel="stylesheet" href="./css/duvida.css">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Nosso caralho -->
+    <div class="header">
+        <div class="container">
+            <ul class="navBar">
+                <li><a class="navbar-link" href="cadastro.html">Cadastro</a></li>
+                <!-- <li><a href="">Sobre Nós</a></li> -->
+                <li><a class="navbar-link" href="login.html">Login</a></li>
+                <li><a class="navbar-link" href="login.html">Sobre nós</a></li>
+                <li><a class="navbar-link" href="./index.html"><h1 class="titulo"><img src="imgs/logotipo.png"></h1></a></li>
+                <li><a class="navbar-link" href="login.html">Aulas</a></li>
+                <li><a class="navbar-link" href="login.html">Quiz</a></li>
+                <li ><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Começo do Banner -->
+
+    <div class="banner">
+        <div class="container" >
+            <div class="caixa_formulario">
+                <div class="duvida">
+                <h1>Deixe sua dúvida</h1>
+                <form class="formulario">
+                    
+                    <input id="input_nome" class="emailInput" type="text" placeholder="Insira o seu nome">
+                    <br>
+                    <input id="input_email" class="emailInput" type="email" placeholder="Insira o seu E-mail">
+                    <br>
+                    <input id="input_mensagem" class="duvidaInput" placeholder="Insira sua Pergunta">
+
+                    <button onclick="enviar()">Enviar</button>
+                </form>
+                </div>
+            </div>
+
+            <div class="fundoContato">
+                <div class="div-contato">
+                    <h2 class="tituloContato">CONTATO</h2>
+                    <div class="contatoPai">
+                        <div class="contato">
+                            <img src="./imgs/chamada-telefonica.png" style="height: 35px; width: 35px;">
+                            <h6 class="telefone">(11) 94300-5811</h6>
+                        </div>
+                        <div class="contato">
+                            <img src="./imgs/at.png"  style="height: 35px; width: 35px;">
+                            <h6 class="telefone">gabriel.bduarte@sptech.school</h6>
+                        </div>
+                    </div>
+
+                    <h2 class="tituloContato">ENDEREÇO</h2>
+                    <div class="contatoPai">
+                        <div class="contato">
+                            <img src="./imgs/marcador.png"  style="height: 35px; width: 35px;">
+                            <h6 class="telefone">Rua Haddock Lobo, 595 - Cerqueira César, São Paulo/SP, 01414-001</h6>
+                        </div>
+                        </div>
+                        <h2 class="tituloContato">ATENDIMENTO</h2>
+                        <div class="contatoPai">
+                        <div class="contato">
+                            <img src="./imgs/relogio-calendario.png"  style="height: 35px; width: 35px;">
+                            <h6 class="telefone">Seg - Sex 9:00 am – 16:00 pm</h6> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+          <h4>Copyright by BoosChess &copy; 2023</h4>
+          <span class="version">v1.0.1</span>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function enviar(){
+        var email = 'gabriel.bduarte@sptech.school';
+        var assunto = 'Olá, meu nome é ' + input_nome.value;
+        var corpo = input_mensagem.value;
+        window.open("mailto:" + email + "?subject" + assunto + "&body=" + corpo)
+    }   
+</script>   

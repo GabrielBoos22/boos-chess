@@ -1,0 +1,115 @@
+* {
+    font-family: "Exo 2", sans-serif;
+}
+
+.caixa_formulario {
+    background: white;
+    background-position: left;
+    opacity: 100%;
+    width: 500px;
+    height: 400px;
+    color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: auto;
+    /* border-radius: 4px;     */
+}
+
+.caixa_formulario h1 {
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    flex-direction: center;
+    justify-content: center;
+}
+
+.duvida {
+    margin: 30px;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    /* width: 200px; */
+    flex-direction: center;
+    justify-content: center;
+}
+
+.formulario button {
+    margin-top: 10px;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 120px;
+    align-self: center;
+    cursor: pointer;
+}
+
+.formulario input {
+    padding: 10px 15px;
+    text-align: center;
+    border: 2px solid #a7a19c;
+    border-radius: 10px;
+}
+
+.formulario span {
+    font-size: 20px;
+}
+
+.duvidaInput {
+    height: 100px;
+    width: 90%;
+}
+
+.emailInput{
+    width: 90%;
+}
+
+.contato {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px;
+    height: 50px;
+}
+
+.fundoContato {
+    /* border-radius: 4px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(46, 41, 41);
+    width: 550px;
+    height: 400px;
+}
+
+.div-contato{
+    margin-top: 15px;
+}
+
+.telefone {
+    display: flex;
+    margin-left: 30px;
+    align-items: end;
+    font-size: 13px;
+    text-align: center;
+    color: #fff;
+}
+
+.tituloContato {
+    display: flex;
+    justify-content: start;
+    margin: 0;
+    margin-left: 30px;
+    color: #fff;
+    font-weight: 800;
+}
+
+.contatoPai {
+    display: flex;
+    height: 100px;
+}
