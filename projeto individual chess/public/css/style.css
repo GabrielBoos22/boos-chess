@@ -3,15 +3,15 @@
 }
 
 body {
-    background: url(../chess-background.jpg);
+    background-color: #1F1F1F;
     background-size: cover;
     margin: 0;
 }
 
 .header {
     width: 100%;
-    background-color: whitesmoke;
-    border-bottom: 5px solid #000000;
+    background-color: #1F1F1F;
+    border-bottom: 2px solid #ffffff;
 }
 
 .container2 {
@@ -27,17 +27,18 @@ body {
 }
 
 .header img {
-    width: 60px;
+    width: 140px;
+    height: 90px;
 }
 
 .header .container {
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     height: 150px;
 }
 
 li b {
-    color: #2d9c17;
+    color: #FFFFFF;
 }
 
 ul img {
@@ -45,13 +46,13 @@ ul img {
     height: 100px;
 }
 
-a {
+.navbar-link{
     text-decoration: none;
-    color: #000000;
+    color: #ADADAD;
 }
 
 a:hover {
-    color: #35c119;
+    color: #ffffff;
     transition: 0.3s all;
 }
 
@@ -61,16 +62,32 @@ a:hover {
     /* background-color: rgba(0, 0, 0, 0.33); */
 }
 
+.banner.home{
+    width: 100%;
+    height: 600px;
+    display: flex;
+    /* background-color: rgba(0, 0, 0, 0.33); */
+}
+
+.label{
+    cursor: pointer;
+}
+.imagem-banner {
+    width: 800px;
+    height: 800px;
+}
+
 .banner .container {
     justify-content: center;
     align-items: center;
     height: 100%;
 }
 
-.banner .container p {
+.banner  p {
     color: #ffffff;
-    font-size: 40px;
-    width: 300px;
+    font-size: 48px;
+    margin-top: 150px;
+    width: 500px;
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 1px;
 }
@@ -82,9 +99,11 @@ p span {
     -webkit-text-stroke-width: 1px;
 }
 
+
 .social {
-    background-color: #a7a19c;
+    background-color: #a09898;
     height: 550px;
+    color: white;
 }
 
 .card {
@@ -144,7 +163,7 @@ p span {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #000000;
+    color: #ffffff;
     font-weight: 800;
 }
 
@@ -168,13 +187,14 @@ p span {
 }
 
 .navBar {
-    width: 450px;
+    width: 100%;
     display: flex;
     list-style: none;
     color: #2a2016;
-    justify-content: space-between;
+    justify-content: space-around;
     font-size: 17px;
     padding: 40px 40px 40px 40px;
+    align-items: center;
 }
 
 #div_erros_login {
