@@ -23,8 +23,8 @@
                 <li><a class="navbar-link" href="./login.html">Login</a></li>
                 <li><a class="navbar-link" href="./calculadora.html">Sobre nós</a></li>
                 <li><a class="navbar-link" href="./index.html"><h1 class="titulo"><img src="imgs/logotipo.png"></h1></a></li>
-                <li> <a class="navbar-link" href="./login.html">Quiz</a> </li>
                 <li id="aqui"><a class="navbar-link" href="./login.html">Aulas</a></li>
+                <li> <a class="navbar-link" href="./login.html">Quiz</a> </li>
                 <li ><a class="navbar-link" href="./duvida.html">Fale Conosco</a></li>
             </ul>
 
@@ -43,6 +43,8 @@
     
                         <span>Nome:</span>
                         <input id="name_input" type="name" placeholder="Seu nome">
+                        <span>Digite seu username:</span>
+                        <input id="username_input" type="name" placeholder="Seu nome">
                         <span>E-mail:</span>
                         <input id="email_input" type="email" placeholder="Seu E-mail">
                         <span>Senha:</span>
@@ -84,6 +86,7 @@
         var nome = name_input.value
         var email = email_input.value
         var senha = senha_input.value
+        var username = username_input.value
         var confirmeSenha = confirmacaoSenha_input.value
 
         
@@ -115,6 +118,7 @@
             body: JSON.stringify({
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
+                usernameServer: username, 
                 nomeServer: nome,
                 emailServer: email,
                 senhaServer: senha,
