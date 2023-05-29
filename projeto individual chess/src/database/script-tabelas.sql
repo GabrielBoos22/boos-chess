@@ -53,6 +53,8 @@ JOIN quizes ON respostas.fkQuiz = quizes.idQuiz WHERE usuario.idUsuario = 1;
 INSERT INTO respostas VALUES 
 (NULL, 5, 7, 1, 1);
 
+SELECT * FROM respostas;
+
 /* INSERINDO RESPOSTA DO MESMO USUARIO EM UM QUIZ DIFERENTE */
 INSERT INTO respostas VALUES 
 (NULL, 5, 7, 2, 1);

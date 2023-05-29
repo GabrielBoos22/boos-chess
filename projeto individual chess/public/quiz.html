@@ -25,13 +25,13 @@
     </div>
 
     <div class="banner quiz">
-        <div class="card-quiz">
+        <div onclick="trocarParaQuizIniciante()" class="card-quiz">
             <a><div id="quiz1">Quiz Iniciante</div></a>
         </div>
-        <div class="card-quiz">
+        <div onclick="trocarParaQuizIntermediario()" class="card-quiz">
             <a><div id="quiz2">Quiz Intermediario</div></a>
         </div>
-        <div class="card-quiz">
+        <div onclick="trocarParaQuizAvancado()" class="card-quiz">
             <a><div id="quiz3">Quiz Avançado</div></a>
         </div>
     </div>
@@ -71,3 +71,16 @@
 </html>
 </body>
 </html>
+<script>
+    function trocarParaQuizIniciante(){
+        window.location.href="quizIniciante.html"
+    }
+
+    function trocarParaQuizIntermediario(){
+        window.location.href="quizIntermediario.html"
+    }
+
+    function trocarParaQuizAvancado(){
+        window.location.href="quizAvancado.html"
+    }
+</script>
