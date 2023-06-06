@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
+
+    <script src="js/funcoes.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/formulario-estilo.css">
     <link rel="stylesheet" href="./css/quiz.css">
+    
 
 </head>
 
@@ -25,7 +28,7 @@
                         <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
                     </a></li>
                 <li><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
-                <li><a href="login.html"><img src="imgs/sair.png" alt="sair"></a></li>
+                <li><a href="login.html" onclick="sair()"><img src="imgs/sair.png"  alt="sair"></a></li>
             </ul>
         </div>
     </div>
@@ -73,7 +76,7 @@
             </article>
 
             <article id='aviso'>Questão <span id='numero'></span> de <span id='total'></span></article>
-
+            <button class="botao-quiz" onclick="voltar()">Voltar</button>
     </div>
 
 
@@ -279,7 +282,7 @@
 
         setTimeout(function () {
             //respostaEsta.textContent = '...'
-            
+
             proxima = numeroDaQuestao + 1
             console.log(proxima)
             if (proxima > totalDeQuestoes) {
@@ -300,8 +303,8 @@
         var idUsuario = sessionStorage.getItem("ID_USUARIO")
         var idQuiz = 1;
 
-    
-            fetch("/respostas/cadastrar", {
+
+        fetch("/respostas/cadastrar", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -321,28 +324,28 @@
                 resposta.json().then(json => {
                     console.log(json);
                     console.log(JSON.stringify(json));
-                    
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    // sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.idUsuario;
 
                     cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+                    // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
 
-                    setTimeout(function () {
-                        window.location = "./quiz.html";
-                    }, 1000); // apenas para exibir o loading
+                    // setTimeout(function () {
+                    //     window.location = "./quiz.html";
+                    // }, 1000); // apenas para exibir o loading
 
                 });
 
-            } 
+            }
         }).catch(function (erro) {
             console.log(erro);
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "O Login está inválido";
-        })          
-        
+        })
+
 
 
 
@@ -364,5 +367,11 @@
         //     acertos = 0 // zerar placar
         //     location.reload();
         // }, 2000)
+    }
+
+    function voltar(){
+        setTimeout(function () {
+                        window.location = "./quiz.html";
+                    }, 200); // apenas para exibir o loading
     }
 </script>

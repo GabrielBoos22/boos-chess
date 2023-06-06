@@ -187,3 +187,13 @@ h1 {
   .button:not(:disabled):hover {
     filter: brightness(0.8);
   }
+
+  .botao-quiz {
+    background: #ccc;
+    color: #191919;
+    padding: 0.625rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
