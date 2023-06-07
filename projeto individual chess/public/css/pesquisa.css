@@ -1,3 +1,44 @@
+.caixa_formulario {
+    background: rgba(255, 255, 255, 0.808);
+    opacity: 100%;
+    width: 400px;
+    height: 550px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.caixa_formulario h1 {
+    font-size: 30px;
+    color: black;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    width: 270px;
+}
+
+
+.formulario input {
+    padding: 10px 15px;
+    text-align: center;
+    border: 2px solid #a7a19c;
+    border-radius: 10px;
+}
+
+.formulario span {
+    font-size: 20px;
+}
+
+ li {
+    list-style: none;
+}
+
+
 .banner.pesquisa {
     width: 100%;
     height: 600px;
@@ -20,9 +61,13 @@ label {
     display: flex;
     justify-content: center;
     margin-bottom: 1rem;
+    margin-top: 15px;
 }
 
 .formulario.pesquisa {
     height: 40vh;
+    width: 50vh;
     display: flex;
+    position: absolute;
+    top: 40%;
 }

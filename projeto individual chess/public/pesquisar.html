@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/formulario-estilo.css">
+    <link rel="stylesheet" href="./css/pesquisa2.css">
+    <!-- <link rel="stylesheet" href="./css/formulario-estilo.css"> -->
     <link rel="stylesheet" href="./css/pesquisa.css">
 
 </head>
@@ -27,10 +28,18 @@
 
     <div class="banner pesquisa">
         <div class="formulario pesquisa">
-            <label>Digite o username</label>
-            <input id="nome"> 
-            <button class="botao-pesquisa">Pesquisar</button>
+            <input id="input_user" placeholder="procurar por email, nome ou nome de usuário"> 
+            <button class="botao-pesquisa" onclick="pesquisar()">Pesquisar</button>
+            <div class="alerta_erro">
+                <div class="card_erro" id="cardErro">
+                    <span id="mensagem_erro"></span>
+                </div>
+            </div>
+            <div id="usuario_achado">
+    
+            </div>
         </div>
+        
     </div>
 
     <div class="social">
@@ -69,15 +78,61 @@
 </body>
 </html>
 <script>
-    function trocarParaQuizIniciante(){
-        window.location.href="quizIniciante.html"
-    }
 
-    function trocarParaQuizIntermediario(){
-        window.location.href="quizIntermediario.html"
-    }
+    function pesquisar(){
+        var usuario = input_user.value;
+        console.log(usuario)
+        if(usuario == ''){
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O campos precisam ser preenchidos";
+        } else {
+            fetch(`/usuarios/pesquisar/${usuario}`).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
 
-    function trocarParaQuizAvancado(){
-        window.location.href="quizAvancado.html"
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    var obj = JSON.stringify(json);
+                    if(json.length > 1){
+                        for(var i = 0; i<= json.length; i++){
+                            usuario_achado.innerHTML += `<p><a href='relatorioUsuario.html'><img src='imgs/usuario-icon.png'> ${JSON.stringify(json[i].username)}</a></p> <br>`
+                        }
+                    }else {
+                        usuario_achado.innerHTML = `<p><a href='relatorioUsuario.html'><img src='imgs/usuario-icon.png'> ${json.username}</a></p>`
+                    }
+                    // sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    cardErro.style.display = "none";
+
+                // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+
+                    // setTimeout(function () {
+                    //     window.location = "./quiz.html";
+                    // }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login");
+
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Nenhum usuário foi encontrado";
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Nenhum usuário foi encontrado.";
+        })        
+        }
     }
 </script>

@@ -11,7 +11,7 @@ idUsuario INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(45),
 email VARCHAR(45),
 username VARCHAR(45),
-senha VARCHAR(45)
+senha VARCHAR(64)
 );
 
 CREATE TABLE respostas(
@@ -32,6 +32,9 @@ INSERT INTO usuario(nome, username, email, senha) VALUES
 ('Gabriel', 'gabrielBoos5' ,'gabriel.bduarte@sptech.school', '123456');
 
 SELECT * FROM usuario;
+SELECT * FROM usuario WHERE username = 'gabrielBoos5' OR email = 'scshiavo@email.com' OR nome = 'Schiavao';
+SELECT * FROM respostas WHERE fkUsuario  = 1;
+
 
 /* CADASTRANDO OS QUIZES */
 INSERT INTO quizes VALUES

@@ -96,9 +96,42 @@ function cadastrar(req, res) {
     }
 }
 
+function pesquisar(req, res) {
+    var usuario = req.params.usuario;
+
+    if (usuario == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else {
+        
+        usuarioModel.pesquisar(usuario)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); // transforma JSON em String
+
+                    if (resultado.length) {
+                        console.log(resultado);
+                        res.json(resultado);
+                    } else if (resultado.length == 0) {
+                        res.status(403).send("Email e/ou nome inválido(s)");
+                    } 
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+}
+
+
 module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    pesquisar
 }
