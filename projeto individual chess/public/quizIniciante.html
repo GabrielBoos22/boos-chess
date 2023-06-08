@@ -23,6 +23,7 @@
                 </li>
                 <!-- <li><a href="">Sobre Nós</a></li> -->
                 <li><a class="navbar-link" href="login.html">Aulas</a></li>
+                <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
                 <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="./index.html">
                         <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
@@ -118,6 +119,15 @@
     let alternativas = document.querySelector('#alternativas')
 
 
+    const q0 = {
+        numQuestao: 0,
+        pergunta: "Pergunta",
+        alternativaA: "Alternativa A",
+        alternativaB: "Alternativa B",
+        alternativaC: "Alternativa C",
+        alternativaD: "Alternativa D",
+        correta: "0",
+    }
 
     const q1 = {
         numQuestao: 1,
@@ -170,7 +180,7 @@
     }
 
     // CONSTANTE COM UM ARRAY DE OBJETOS COM TODAS AS QUESTOES
-    const questoes = [ q1, q2, q3, q4, q5]
+    const questoes = [q0, q1, q2, q3, q4, q5]
 
     let numero = document.querySelector('#numero')
     let total = document.querySelector('#total')

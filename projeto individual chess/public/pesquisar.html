@@ -21,6 +21,7 @@
                 </li>
                 <!-- <li><a href="">Sobre Nós</a></li> -->
                 <li><a class="navbar-link" href="aulas.html">Aulas</a></li>
+                <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
                 <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="./index.html">
                         <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
@@ -32,9 +33,11 @@
     </div>
 
     <div class="banner pesquisa">
+            
         <div class="formulario pesquisa">
-            <input id="input_user" placeholder="procurar por email, nome ou nome de usuário">
-            <button class="botao-pesquisa" onclick="pesquisar()">Pesquisar</button>
+            <h1>Pesquise um usuário</h1>
+            <input id="input_user" class="custom-input" placeholder="procurar por email, nome ou nome de usuário">
+            <button class="botao-pesquisa" class="custom-buttom" onclick="pesquisar()">Pesquisar</button>
             <div class="alerta_erro">
                 <div class="card_erro" id="cardErro">
                     <span id="mensagem_erro"></span>
@@ -64,10 +67,11 @@
 </html>
 <script>
 
-    function pegarId(a) {
-        console.log(a)
-        console.log(a.value)
-        sessionStorage.setItem('ID_PESQUISADO',a.value)
+    function pegarId(elemento) {
+        console.log(elemento)
+        console.log(elemento.getAttribute("value"))
+        var idPego = elemento.getAttribute("value")
+        sessionStorage.setItem('ID_PESQUISADO', idPego)
         // setTimeout(function () {
         //     window.location = "./relatorioUsuario.html";
         // }, 1000); // apenas para exibir o loading
@@ -78,6 +82,7 @@
         console.log(usuario)
         if (usuario == '') {
             cardErro.style.display = "block"
+            usuario_achado.style= 'display: none'
             mensagem_erro.innerHTML = "O campos precisam ser preenchidos";
         } else {
             fetch(`/usuarios/pesquisar/${usuario}`).then(function (resposta) {
@@ -88,16 +93,18 @@
 
                     resposta.json().then(json => {
                         console.log(json);
-
+                        usuario_achado.style= 'display: flex'
 
                         if (json.length > 1) {
-
+                            var bottom = 140;
                             for (var i = 0; i < json.length; i++) {
-                                if (i == 1) {
-                                    usuario_achado.innerHTML = `<p><a value='${json[1].idUsuario}' onclick="pegarId(this)" ><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
+                                if (i == 0) {
+                                    console.log("passei por aqui")
+                                    usuario_achado.innerHTML = `<p><a value='${json[i].idUsuario}' href='relatorioUsuario.html' class="usuario-achado-texto" onclick="pegarId(this)" ><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
                                 } else {
-                                    usuario_achado.innerHTML += `<p><a href='relatorioUsuario.html'><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
+                                    usuario_achado.innerHTML += `<p><a value='${json[i].idUsuario}'  style='bottom: ${bottom}px' href='relatorioUsuario.html' class="usuario-achado-texto" onclick="pegarId(this)><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
                                 }
+                                bottom -= 20
                                 console.log("é maior que 1")
                             }
 
@@ -106,11 +113,8 @@
                             console.log(json)
                             var id = json[0].idUsuario
                             sessionStorage.setItem('ID_PESQUISADO', id)
-                            usuario_achado.innerHTML = `<p><a><img src='imgs/usuario-icon.png'> ${json[0].username}</a></p>`
-                             setTimeout(function () {
-                            window.location = "./relatorioUsuario.html";
-                        }, 1000); // apenas para exibir o loading
-
+                            usuario_achado.innerHTML = `<p><a href="relatorioUsuario.html" class="usuario-achado-texto"><img src='imgs/usuario-icon.png'> ${json[0].username}</a></p>`
+                             
                         }
                         // sessionStorage.EMAIL_USUARIO = json.email;
                         // sessionStorage.NOME_USUARIO = json.nome;
