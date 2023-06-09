@@ -1,3 +1,12 @@
+function validarSessao() {
+    var usuario = sessionStorage.ID_USUARIO;
+    var nome = sessionStorage.NOME_USUARIO;
+
+    if (usuario == null && nome == null) {
+        window.location = "../login.html";
+    } 
+}
+
 function sair(){
     sessionStorage.removeItem('ID_USUARIO');
     sessionStorage.removeItem('fk_EMPRESA');

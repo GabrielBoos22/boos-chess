@@ -6,15 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
 
-    <script src="js/funcoes.js"></script>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/formulario-estilo.css">
     <link rel="stylesheet" href="./css/quiz.css">
-    
+    <script src="js/sessao.js"></script>
 
 </head>
 
-<body>
+<body onload="validarSessao()">
 
     <div class="header">
         <div class="container">
@@ -24,10 +23,10 @@
                 <!-- <li><a href="">Sobre Nós</a></li> -->
                 <li><a class="navbar-link" href="login.html">Aulas</a></li>
                 <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
-                <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="./index.html">
-                        <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
-                    </a></li>
+                    <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
+                </a></li>
+                <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
                 <li><a href="login.html" onclick="sair()"><img src="imgs/sair.png"  alt="sair"></a></li>
             </ul>
@@ -43,7 +42,7 @@
                 Leia a questão e clique na resposta correta
             </article> -->
 
-            <div class="desaparecer" id="instrucoes"></div>
+            <div class="desaparecer" style="display: none;" id="instrucoes"></div>
 
             <article class='questoes'>
 
@@ -145,7 +144,7 @@
         alternativaA: "Oeste",
         alternativaB: "Sul",
         alternativaC: "Norte",
-        alternativaD: "Norte",
+        alternativaD: "Leste",
         correta: "Sul",
     }
 
@@ -155,7 +154,7 @@
         alternativaA: "Sul",
         alternativaB: "Leste",
         alternativaC: "Oeste",
-        alternativaD: "Oeste",
+        alternativaD: "Norte",
         correta: "Leste",
     }
 
@@ -165,7 +164,7 @@
         alternativaA: "Norte",
         alternativaB: "Leste",
         alternativaC: "Oeste",
-        alternativaD: "Norte",
+        alternativaD: "Sul",
         correta: "Oeste",
     }
 
@@ -175,7 +174,7 @@
         alternativaA: "África",
         alternativaB: "Europa",
         alternativaC: "América",
-        alternativaD: "Africa",
+        alternativaD: "America",
         correta: "América",
     }
 
@@ -203,6 +202,7 @@
     a.setAttribute('value', '1A')
     b.setAttribute('value', '1B')
     c.setAttribute('value', '1C')
+    d.setAttribute('value', '1D')
 
     // PARA MONTAR AS PROXIMAS QUESTOES
     function proximaQuestao(nQuestao) {
@@ -212,7 +212,7 @@
         a.textContent = questoes[nQuestao].alternativaA
         b.textContent = questoes[nQuestao].alternativaB
         c.textContent = questoes[nQuestao].alternativaC
-        c.textContent = questoes[nQuestao].alternativaD
+        d.textContent = questoes[nQuestao].alternativaD
         a.setAttribute('value', nQuestao + 'A')
         b.setAttribute('value', nQuestao + 'B')
         c.setAttribute('value', nQuestao + 'C')
@@ -305,7 +305,7 @@
         var idUsuario = sessionStorage.getItem("ID_USUARIO")
         var idQuiz = 1;
 
-
+        console.log(acertos, erros, idQuiz, idUsuario)
         fetch("/respostas/cadastrar", {
             method: "POST",
             headers: {

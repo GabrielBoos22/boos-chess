@@ -5,14 +5,8 @@ function buscarUltimasMedidas(idUsuario) {
     instrucaoSql = ''
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
-        instrucaoSql = `select top ${limite_linhas}
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,  
-                        momento,
-                        FORMAT(momento, 'HH:mm:ss') as momento_grafico
-                    from medida
-                    where fk_aquario = ${idUsuario}
-                    order by id desc`;
+        instrucaoSql = `SELECT (sum(acertos)) AS 'Acertos', (sum(erros)) AS 'Erros' FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
+        JOIN quizes ON respostas.fkQuiz = quizes.idQuiz WHERE usuario.idUsuario = ${idUsuario};`;
     } else if (process.env.AMBIENTE_PROCESSO == "desenvolvimento") {
         instrucaoSql = `SELECT (sum(acertos)) AS 'Acertos', (sum(erros)) AS 'Erros' FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
         JOIN quizes ON respostas.fkQuiz = quizes.idQuiz WHERE usuario.idUsuario = ${idUsuario};`;
