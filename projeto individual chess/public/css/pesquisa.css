@@ -34,6 +34,14 @@
     position: relative;
     bottom: 140px;
     left: 25px;
+    margin-bottom: 10px;
+}
+
+
+.title {
+    position: absolute;
+    top: 260px;
+    text-align: center;
 }
 
 .formulario input {

@@ -6,9 +6,10 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/formulario-estilo.css">
+    <script src="js/sessao.js"></script>
 
 </head>
-<body>
+<body onload="validarSessao()">
 
     <div class="header">
         <div class="container">
@@ -17,10 +18,12 @@
                 <!-- <li><a href="">Sobre Nós</a></li> -->
                 <li><a class="navbar-link" href="aulas.html">Aulas</a></li>
                 <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
-                <li><a class="navbar-link" href="login.html">Quiz</a></li>
-                <li><a class="navbar-link" href="./index.html"><h1 class="titulo"><img src="imgs/logotipo.png"></h1></a></li>
+                <li><a class="navbar-link   " href="./index.html">
+                    <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
+                </a></li>
+                <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
-                <li><a href="login.html"><img src="imgs/sair.png" alt="sair"></a></li>
+                <li><a href="login.html" onclick="sair()"><img src="imgs/sair.png" alt="sair"></a></li>
             </ul>
         </div>
     </div>
@@ -37,28 +40,8 @@
         </div>
     </div>
 
-    <div class="social">
-            <div>
-                <span class="nossoSis">Aulas e Quizes</span>
-                <h4 class="nossoSis2">Ensinaremos do zero ao avançado <br> como ficar bom no xadrez </h4>
-            </div>
-            <div class="container">
-                <div class="card">
-                <img src="imgs/peca.png" alt="Empresa"> 
-                <h4>Quizes para saber testar seu conhecimento</h4>
-                <p>Após sua autenticação no site será disponibilizado os quizes para sua diversão</p>
-            </div>
-            <div class="card">
-                <img src="imgs/educacao.png" alt="Sensores"> 
-                <h4>Aulas práticas</h4>
-                <p>Além de quizes, temos aulas práticas e objetivas baseadas em artigos cientifícos para o melhor entendimento possível de como jogar xadrez </p>
-            </div>
-            <div class="card">
-                <img src="imgs/perfil.png" alt="Gráficos"> 
-                <h4>Veja o perfil de seus amigos</h4>
-                <p>Veja o perfil de seus colegas ou de outras pessoas e seu nivel de conhecimento com base na porcentagem de acertos nos quizes</p>
-            </div>
-        </div>
+    <div class="banner">
+
     </div>
 
     <div class="footer">

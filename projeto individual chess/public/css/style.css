@@ -83,7 +83,7 @@ a:hover {
     height: 100%;
 }
 
-.banner  p {
+.banner  .home-texto  {
     color: #ffffff;
     font-size: 48px;
     margin-top: 150px;
@@ -171,6 +171,7 @@ p span {
 
 .footer {
     background-color: black;
+    background-image: url(../imgs/bg.jpg);
     height: 100px;
     color: #fff;
     display: flex;
