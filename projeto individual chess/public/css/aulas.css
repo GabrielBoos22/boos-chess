@@ -1,0 +1,59 @@
+.level-componente {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 50px;
+}
+
+.level-conteudo {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .curso {
+    width: 300px;
+    height: 150px;
+    background-color: rgb(34, 31, 31);
+    margin: 10px;
+  }
+  
+  .curso{
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  .conteudo {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+  }
+  
+ .conteudo img {
+    width: 130px;
+    height: 130px;
+    margin-right: 10px;
+  }
+  
+  p {
+    color: white;
+    font-size: 14px;
+  }
+
+  .video {
+    width: 300px;
+    height: 150px;
+  }
+
+  .green-button {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .green-button:hover {
+    opacity: 0.8;
+  }
