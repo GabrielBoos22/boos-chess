@@ -34,7 +34,8 @@ INSERT INTO usuario(nome, username, email, senha) VALUES
 INSERT INTO usuario(nome, username, email, senha) VALUES ('teste', 'roberto' ,'gabriel.bduarte@sptech.school', '123456');
 
 
-SELECT * FROM usuario;
+SELECT * FROM usuario; 
+(NULL, 5, 5, 2, 1);
 SELECT * FROM usuario WHERE username = 'gabriel' OR email = 'gabriel' OR nome = 'gabriel';
 SELECT * FROM respostas WHERE fkUsuario  = 1;
 
@@ -48,8 +49,7 @@ INSERT INTO quizes VALUES
 SELECT * FROM quizes;
 
 /* INSERINDO RESPOSTA DO USUARIO  */
-INSERT INTO respostas VALUES 
-(NULL, 5, 5, 2, 1);
+INSERT INTO respostas VALUES
 
 /* PEGAR RELATÓRIO DE ACERTOS E ERROS */
 SELECT * FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
