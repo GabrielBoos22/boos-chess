@@ -35,19 +35,22 @@
             </div>
             <div class="level-conteudo">
                 <div class="curso">
-                    <div class="conteudo">
-                        <img onclick="iniciar()" id="conteudo" src="imgs/aula1-img1.png" alt="Imagem">
+                    <div class="conteudo" id="exibir_conteudo1">
+                        <img id="imagem_conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
                         <div>
-                            <p>Conheca as peças de xadrez e como preparar o tabuleiro</p>
-                            <button class="green-button">Assistir</button>
+                            <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            <button class="green-button" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
                         </div>
                     </div>
                 </div>
                 <div class="curso">
-                    <video width="640" height="360" controls class="video">
-                        <source src="video/PRT-NOV-the-king-and-the-goal-m2q.mp4" type="video/mp4">
-                        Seu navegador não suporta o elemento de vídeo.
-                      </video>
+                    <div class="conteudo" id="exibir_conteudo2">
+                        <img id="imagem_conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <div>
+                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <button class="green-button" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -63,13 +66,39 @@
           <span class="version">v1.0.0</span>
         </div>
     </div>
-    
+
 </body>
 </html>
 </body>
 </html>
 <script>
-    function iniciar(){
-        conteudo.innerHTML = `<video autoplay="autoplay" height="1" src="https://media.chesscomfiles.com/videos/square/PRT-NOV-the-king-and-the-goal-m2q.mp4" type="video/mp4" width="1" crossorigin="anonymous" tabindex="-1" class=""><!----></video>`
+    function assistir1(){
+        imagem_conteudo.style = "display: none"
+        exibir_conteudo1.innerHTML = `<video controls class="video">
+                        <source src="video/PRT-NOV-the-king-and-the-goal-m2q.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                      </video>
+                      <button class="green-button" onclick="voltar()">Voltar</button>
+                      `
+        exibir_conteudo1.classList.remove("conteudo");
+    }
+
+    function assistir2(){
+        imagem_conteudo.style = "display: none"
+        exibir_conteudo2.innerHTML = `<video controls class="video">
+                        <source src="video/PRT-NOV-notation-the-language-of-chess-l2x.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                      </video>
+                      <button class="green-button" style="text-align: center" onclick="voltar2()"> Voltar </button>`
+        exibir_conteudo2.classList.remove("conteudo");
+    }
+
+    function voltar2(){
+        imagem_conteudo.style = "display: block"
+        exibir_conteudo2.innerHTML = `<img id="imagem_conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <div>
+                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <button class="green-button" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                        </div>`
     }
 </script>
