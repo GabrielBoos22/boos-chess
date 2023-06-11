@@ -7,6 +7,11 @@
     margin-bottom: 30px;
 }
 
+.div-voltar{
+  display: flex;
+  justify-content: center;
+}
+
 .banner.aulas{
   width: 100%;
   height: 3150px;

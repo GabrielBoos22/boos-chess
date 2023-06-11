@@ -36,11 +36,7 @@
 }
 
 
-.title {
-    position: absolute;
-    top: 260px;
-    text-align: center;
-}
+
 
 .formulario input {
     padding: 10px 15px;
@@ -97,7 +93,7 @@
 .banner.pesquisa {
     width: 60%;
     height: 60vh;
-    background-color: #4c4a4ab7;
+    background-color: #b0aeaeb7;
     margin: 10vh auto; /* Centraliza verticalmente com margens superiores e inferiores */
     border: 2px dashed white; /* Define uma borda tracejada branca */
     box-sizing: border-box; /* Inclui a borda na largura e altura total da div */
@@ -108,15 +104,16 @@
 }
 
 .banner.pesquisa.container-usuario {
-    width: 80%;
-    height: 110vh;
+    width: 60%;
+    height: 90vh;
     margin: 10vh auto; /* Centraliza verticalmente com margens superiores e inferiores */
-    border: 2px dashed white; /* Define uma borda tracejada branca */
+    border: 2px solid white; /* Define uma borda tracejada branca */
     box-sizing: border-box; /* Inclui a borda na largura e altura total da div */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* h2.title {

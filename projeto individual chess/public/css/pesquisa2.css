@@ -2,6 +2,37 @@
     font-family: 'Segoe UI';
 }
 
+.navBar {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    list-style: none;
+  }
+  
+  .navBar li {
+    font-size: 20px;
+  }
+  
+  .navBar a {
+    color: #f7f5f3;
+    text-decoration: none;
+  }
+  
+  .navBar a:hover {
+    color: #b3b3b300;
+  }
+  
+  .navBar .active {
+    font-weight: bold;
+  }
+  
+  .imagem-lupa {
+    width: 20px;
+    height: 20px;
+  }
+  
 body {
     background-color: #1F1F1F;
     background-size: cover;
@@ -83,22 +114,32 @@ a:hover {
     height: 100%;
 }
 
-#graficos{
-    height: 20vh;
-    padding-top: 20px;
+.grafico-tamanho{
+    display: block;
+    box-sizing: border-box;
+    height: 200px;
+    width: 300px;
 }
 
+#graficos{
+    height: 50vh;
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+}
+
+
 .banner  p {
-    color: #adadad;
+    color: #161515;
     font-size: 24px;
-    width: 500px;
+    width: 80%;
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 0.2px;
 }
 
 .banner h2 {
-    color: #e8e2e2;
-    font-size: 24px;
+    color: #161515;
+    font-size: 32px;
     width: 500px;
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 1px;

@@ -26,8 +26,8 @@
                 <li><a class="navbar-link" href="aulas.html">Aulas</a></li>
                 <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
                 <li><a class="navbar-link" href="./index.html">
-                    <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
-                </a></li>
+                        <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
+                    </a></li>
                 <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="ranking.html">Ranking</a></li>
                 <li><a href="login.html" onclick="sair()"><img src="imgs/sair.png" alt="sair"></a></li>
@@ -37,17 +37,18 @@
 
     <div class="banner pesquisa container-usuario">
         <h2 class="title">Relatório de Usuarios</h2>
-        <p ><img src='imgs/usuario-icon.png' style="margin-top: 20px;"><span id="nome_usuario" style="position: absolute;
+        <p><img src='imgs/usuario-icon.png' style="margin-top: 20px;"><span id="nome_usuario" style="position: absolute;
             margin-left: 10px;
             margin-top: 20px;"></span></p>
-        <p class="texto">Número de Aulas Assistidas:</p>
+        <p class="texto">Número de Aulas Assistidas: <span id="somaAulas"></span></p>
         <p class="texto">Nível de Conhecimento: <span id="nivel_conhecimento"></span></p>
         <p class="texto">Porcentagem de Acertos: <span id="porcentagem_acertos"></span></p>
-        <p class="texto">Gráfico de acertos:</p>
+        <p class="texto">Gráficos: </p>
+
         <div id="graficos">
         </div>
     </div>
- 
+
 
 
     <div class="footer">
@@ -65,11 +66,13 @@
     var usernameUsuario = sessionStorage.USERNAME_PESQUISADO;
     let proximaAtualizacao;
     let porcentagemDeAcertos;
+    let soma = 0;
     window.onload = validarSessao();
     nome_usuario.innerHTML = usernameUsuario;
-    window.onload = exibirAquariosDoUsuario(idUsuario);
+    window.onload = exibirAcertosDoUsuario(idUsuario);
+    window.onload = exibirAulasDoUsuario(idUsuario);
 
-    function exibirAquariosDoUsuario(id) {
+    function exibirAcertosDoUsuario(id) {
         // var aquarios = JSON.parse(sessionStorage.AQUARIOS);
         // aquarios.forEach(item => {
         // document.getElementById("btnAquario").innerHTML += `
@@ -79,7 +82,7 @@
         document.getElementById("graficos").innerHTML += `
             <div id="grafico${id}" class="display-none">
                 <div class="graph">
-                    <canvas id="myChartCanvas${id}"></canvas>
+                    <canvas id="myChartCanvas${id}" class="grafico-tamanho"></canvas>
                 </div>
 
             </div>
@@ -87,6 +90,28 @@
 
         obterDadosGrafico(id)
             ;
+        // if (aquarios.length > 0) {
+        //     exibirAquario(aquarios[0].id)
+        // }
+    }
+
+    function exibirAulasDoUsuario(id) {
+        // var aquarios = JSON.parse(sessionStorage.AQUARIOS);
+        // aquarios.forEach(item => {
+        // document.getElementById("btnAquario").innerHTML += `
+        // <button class="btn-chart" onclick="exibirAquario(${item.id})" id="btnAquario${item.id}">${item.descricao}</button>
+        // `
+
+        document.getElementById("graficos").innerHTML += `
+            <div id="grafico${id}" class="display-none">
+                <div class="graph">
+                    <canvas id="myChartCanvas1000" class="grafico-tamanho"></canvas>
+                </div>
+
+            </div>
+        `
+
+        obterDadosGrafico2(id);
         // if (aquarios.length > 0) {
         //     exibirAquario(aquarios[0].id)
         // }
@@ -155,22 +180,23 @@
                     resposta.reverse();
                     console.log(resposta)
 
-                    if(resposta[0].Acertos !== null && resposta[0].Erros !== null){
+                    if (resposta[0].Acertos !== null && resposta[0].Erros !== null) {
 
                         porcentagemDeAcertos = (resposta[0].Acertos / (resposta[0].Erros + resposta[0].Acertos));
-                    porcentagem_acertos.innerHTML = (porcentagemDeAcertos * 100).toFixed(2) + "%";
+                        porcentagem_acertos.innerHTML = (porcentagemDeAcertos * 100).toFixed(2) + "%";
 
-                    if(porcentagemDeAcertos <= 0.4){
-                        
-                        nivel_conhecimento.innerHTML = "Iniciante"
+                        if (porcentagemDeAcertos <= 0.4) {
 
-                    } else if (porcentagemDeAcertos > 0.4 && porcentagemDeAcertos < 0.8){
-                        nivel_conhecimento.innerHTML = "Intermediário"
-                    } else {
-                        nivel_conhecimento.innerHTML = "Profissional"
-                    }
+                            nivel_conhecimento.innerHTML = "Iniciante"
+
+                        } else if (porcentagemDeAcertos > 0.4 && porcentagemDeAcertos < 0.8) {
+                            nivel_conhecimento.innerHTML = "Intermediário"
+                        } else {
+                            nivel_conhecimento.innerHTML = "Profissional"
+                        }
                     } else {
                         porcentagem_acertos.innerHTML = "O usuário ainda não fez quiz";
+                        nivel_conhecimento.innerHTML = "Indefinido"
                     }
                     console.log(porcentagemDeAcertos)
                     plotarGrafico(resposta, idUsuario);
@@ -185,9 +211,61 @@
             });
     }
 
+    function obterDadosGrafico2(idUsuario) {
+
+        // alterarTitulo(idUsuario)
+        if (proximaAtualizacao != undefined) {
+            clearTimeout(proximaAtualizacao);
+        }
+
+        fetch(`/aula/ultimas/${idUsuario}`).then(function (response) {
+            if (response.ok) {
+                if (response.statusText == "No Content") {
+                    somaAulas.innerHTML = "O usuário ainda não assistiu nenhuma aula";
+                    plotarGrafico2(response, idUsuario);
+                } else {
+                    response.json().then(function (resposta) {
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                        resposta.reverse();
+                        console.log(resposta)
+
+                        if (resposta[0].tipo == null && resposta[0].totalAulas == null) {
+                            somaAulas.innerHTML = "O usuário ainda não assistiu nenhuma aula";
+                        }
+
+                        //     porcentagemDeAcertos = (resposta[0].Acertos / (resposta[0].Erros + resposta[0].Acertos));
+                        // porcentagem_acertos.innerHTML = (porcentagemDeAcertos * 100).toFixed(2) + "%";
+
+                        // if(porcentagemDeAcertos <= 0.4){
+
+                        //     nivel_conhecimento.innerHTML = "Iniciante"
+
+                        // } else if (porcentagemDeAcertos > 0.4 && porcentagemDeAcertos < 0.8){
+                        //     nivel_conhecimento.innerHTML = "Intermediário"
+                        // } else {
+                        //     nivel_conhecimento.innerHTML = "Profissional"
+                        // }
+                        // } else {
+                        //     porcentagem_acertos.innerHTML = "O usuário ainda não fez quiz";
+                        // }
+                        console.log(porcentagemDeAcertos)
+                        plotarGrafico2(resposta, idUsuario);
+
+                    });
+                }
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
     // Esta função *plotarGrafico* usa os dados capturados na função anterior para criar o gráfico
     // Configura o gráfico (cores, tipo, etc), materializa-o na página e, 
     // A função *plotarGrafico* também invoca a função *atualizarGrafico*
+
     function plotarGrafico(resposta, idUsuario) {
 
         console.log('iniciando plotagem do gráfico...');
@@ -241,6 +319,12 @@
         const config = {
             type: 'bar',
             data: dados,
+            options: {
+                responsive: true, // Certifique-se de que essa opção esteja definida como true
+                maintainAspectRatio: false, // Defina como false para permitir que você controle o tamanho do gráfico
+                width: 300, // Defina a largura desejada
+                height: 300 // Defina a altura desejada
+            }
         };
 
         // Adicionando gráfico criado em div na tela
@@ -250,6 +334,72 @@
         );
 
         setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 5000);
+    }
+
+    function plotarGrafico2(resposta, idUsuario) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        let dados = {
+            labels: labels,
+            datasets: [{
+                label: 'Aulas Assistidas',
+                data: [],
+                fill: false,
+                backgroundColor: ['rgb(241, 196, 15)',
+                    'rgb(211, 84, 0)',
+                    'rgb(166, 201, 226)'],
+                borderColor: ['rgb(241, 196, 15)',
+                    'rgb(211, 84, 0)',
+                    'rgb(166, 201, 226)'],
+                tension: 0.1
+            }]
+        };
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.tipo);
+            dados.datasets[0].data.push(registro.totalAulas);
+            soma += registro.totalAulas
+            // dados.datasets[0].data.push(registro.erros);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(dados.datasets)
+        console.log('----------------------------------------------')
+        somaAulas.innerHTML = soma
+        // Criando estrutura para plotar gráfico - config
+        const config = {
+            type: 'doughnut',
+            data: dados,
+            options: {
+                responsive: true, // Certifique-se de que essa opção esteja definida como true
+                maintainAspectRatio: false, // Defina como false para permitir que você controle o tamanho do gráfico
+                width: 300, // Defina a largura desejada
+                height: 300 // Defina a altura desejada
+            }
+        };
+
+        // Adicionando gráfico criado em div na tela
+        let myChart = new Chart(
+            document.getElementById(`myChartCanvas1000`),
+            config
+        );
+
+        // setTimeout(() => atualizarGrafico2(idUsuario, dados, myChart), 5000);
     }
 
 
@@ -300,7 +450,7 @@
                     }
 
                     // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
-                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+                    proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 10000);
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -313,5 +463,59 @@
             });
 
     }
+
+    // function atualizarGrafico(idUsuario, dados, myChart) {
+
+
+
+    //     fetch(`/aula/tempo-real/${idUsuario}`, { cache: 'no-store' }).then(function (response) {
+    //         if (response.ok) {
+    //             response.json().then(function (novoRegistro) {
+
+    //                 // obterdados(idUsuario);
+    //                 // alertar(novoRegistro, idUsuario);
+    //                 console.log(`Dados recebidos: ${JSON.stringify(novoRegistro)}`);
+    //                 console.log(`Dados atuais do gráfico:`);
+    //                 console.log(dados);
+
+    //                 // let avisoCaptura = document.getElementById(`avisoCaptura${idUsuario}`)
+    //                 // avisoCaptura.innerHTML = ""
+
+
+    //                 if (novoRegistro[0].momento_grafico == dados.labels[dados.labels.length - 1]) {
+    //                     console.log("---------------------------------------------------------------")
+    //                     console.log("Como não há dados novos para captura, o gráfico não atualizará.")
+    //                     avisoCaptura.innerHTML = "<i class='fa-solid fa-triangle-exclamation'></i> Foi trazido o dado mais atual capturado pelo sensor. <br> Como não há dados novos a exibir, o gráfico não atualizará."
+    //                     console.log("Horário do novo dado capturado:")
+    //                     console.log(novoRegistro[0].momento_grafico)
+    //                     console.log("Horário do último dado capturado:")
+    //                     console.log(dados.labels[dados.labels.length - 1])
+    //                     console.log("---------------------------------------------------------------")
+    //                 } else {
+    //                     // // tirando e colocando valores no gráfico
+    //                     // dados.labels.shift(); // apagar o primeiro
+    //                     // dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
+
+    //                     dados.datasets[0].data.shift();  // apagar o primeiro de umidade
+    //                     dados.datasets[0].data.push(novoRegistro[0].totalAulas); // incluir uma nova medida de umidade
+
+
+    //                     myChart.update();
+    //                 }
+
+    //                 // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    //                 proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+    //             });
+    //         } else {
+    //             console.error('Nenhum dado encontrado ou erro na API');
+    //             // Altere aqui o valor em ms se quiser que o gráfico atualize mais rápido ou mais devagar
+    //             proximaAtualizacao = setTimeout(() => atualizarGrafico(idUsuario, dados, myChart), 2000);
+    //         }
+    //     })
+    //         .catch(function (error) {
+    //             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+    //         });
+
+    // }
 
 </script>

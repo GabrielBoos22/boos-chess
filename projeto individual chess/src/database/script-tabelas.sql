@@ -1,5 +1,5 @@
 CREATE DATABASE booschess;
-
+DROP DATABASE booschess;
 USE booschess;
 
 CREATE TABLE quizes (
@@ -11,7 +11,7 @@ idUsuario INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(45),
 email VARCHAR(45),
 username VARCHAR(45),
-senha VARCHAR(45)
+senha VARCHAR(64)
 );
 
 CREATE TABLE respostas(
@@ -58,7 +58,23 @@ INSERT INTO quizes VALUES
 INSERT INTO aulas VALUES
 (NULL, 'Iniciante','Como as Peças se Movem'),
 (NULL, 'Iniciante','Jogando Xadrez'),
-(NULL, 'Iniciante','Princípios da Abertura');
+(NULL, 'Iniciante','Princípios da Abertura'),
+(NULL, 'Iniciante','Vencendo a Partida'),
+(NULL, 'Iniciante','Capturando Peças'),
+(NULL, 'Iniciante','Atacando o Rei'),
+(NULL, 'Iniciante','Primeiros Lances'),
+(NULL, 'Intermediario','Extraia o Máximo Possível das Suas Peças'),
+(NULL, 'Intermediario','Compreendendo os Finais'),
+(NULL, 'Intermediario','Vencendo com Táticas'),
+(NULL, 'Intermediario','Lances forçados'),
+(NULL, 'Intermediario','Lendo o tabuleiro'),
+(NULL, 'Avancado','Aberturas Chave'),
+(NULL, 'Avancado','Escolha o Melhor Lance'),
+(NULL, 'Avancado','Ativando as Suas Peças'),
+(NULL, 'Avancado','Finais Avançados'),
+(NULL, 'Avancado','Atacando o Rei'),
+(NULL, 'Avancado','Táticas Avançadas'),
+(NULL, 'Avancado','Padrões de Finais');
 
 SELECT * FROM quizes;
 SELECT * FROM aulas;
@@ -68,12 +84,13 @@ INSERT INTO respostas VALUES
 (NULL, 5, 5, 1, 1);
 
 INSERT INTO assistidas VALUES 
-(NULL, 1, 2, 1);
+(NULL, 3, 9, 1);
 
 /* PEGAR RELATÓRIO DE ACERTOS E ERROS */
 SELECT * FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
 JOIN quizes ON respostas.fkQuiz = quizes.idQuiz WHERE usuario.idUsuario = 1;
 
+/* PEGAR RELATÓRIO DE AULAS ASSISTIDAS */
 SELECT * FROM assistidas JOIN usuario ON assistidas.fkUsuario = usuario.idUsuario 
 JOIN aulas ON assistidas.fkAula = aulas.idAula WHERE usuario.idUsuario = 1;
 
@@ -100,7 +117,7 @@ WHERE assistidas.fkUsuario = 1
 GROUP BY aulas.tipo;
 
 
-/* PEGAR ID DE QUAIS AULAS FORAM ASSISTIDAS EM CADA TIPO*/
+/* PEGAR ID DE QUAIS AULAS FORAM ASSISTIDAS DEVOLVENDO O ID*/
 SELECT aulas.idAula, SUM(assistidas.qtdAulas) AS totalAulas
 FROM assistidas
 JOIN aulas ON assistidas.fkAula = aulas.idAula
@@ -108,9 +125,12 @@ WHERE assistidas.fkUsuario = 1
 GROUP BY aulas.idAula;
 
 
-/*FAZER UM RANKING DE MAIORES ACERTOS ENTRE TODOS OS USUÁRIOS*/
-SELECT (acertos) AS 'Acertos', (erros) AS 'Erros', usuario.nome AS 'Nome', acertos / erros AS resultado FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
-JOIN quizes ON respostas.fkQuiz = quizes.idQuiz ORDER BY resultado DESC;
+/* DELETAR AULA ASSISTIDA (NAO FOI ASSISTIDA) */
+
+DELETE FROM assistidas WHERE fkAula = 1 AND fkUsuario = 1;
+
+
+
 
 
 

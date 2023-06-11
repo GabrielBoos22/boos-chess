@@ -23,7 +23,7 @@ body {
     display: flex;
     width: 80%;
     margin: auto;
-    /* flex-direction: column; */
+    flex-direction: row-reverse;
 }
 
 .header img h1 {
@@ -46,10 +46,7 @@ ul h1 img {
     height: 100px;
 }
 
-.navbar-link{
-    text-decoration: none;
-    color: #ADADAD;
-}
+
 
 a:hover {
     color: #ffffff;
@@ -190,13 +187,33 @@ p span {
 .navBar {
     width: 100%;
     display: flex;
-    list-style: none;
-    color: #2a2016;
     justify-content: space-around;
-    font-size: 20px;
-    padding: 40px 40px 40px 40px;
     align-items: center;
-}
+    padding: 20px;
+    list-style: none;
+  }
+  
+  .navBar li {
+    font-size: 20px;
+  }
+  
+  .navBar a {
+    color: #f7f5f3;
+    text-decoration: none;
+  }
+  
+  .navBar a:hover {
+    color: #7b7b7bdc;
+  }
+  
+  .navBar .active {
+    font-weight: bold;
+  }
+  
+  .imagem-lupa {
+    width: 20px;
+    height: 20px;
+  }
 
 #div_erros_login {
     display: none

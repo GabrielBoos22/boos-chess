@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CADASTRO - BoosChess</title>
-   
+
 
     <!-- Aqui colocamos o link para o arquivo de estilização-->
     <link rel="stylesheet" href="./css/style.css">
@@ -19,16 +19,15 @@
     <div class="header">
         <div class="container">
             <ul class="navBar">
-                <li> <a class="navbar-link" href="./cadastro.html">Cadastro</a></li>
-                <li><a class="navbar-link" href="./login.html">Login</a></li>
-                <li><a class="navbar-link" href="./sobrenos.html">Sobre nós</a></li>
+                <li><a class="navbar-link" href="cadastro.html">Cadastro</a></li>
+                <!-- <li><a href="">Sobre Nós</a></li> -->
+                <li><a class="navbar-link" href="login.html">Login</a></li>
                 <li><a class="navbar-link" href="./index.html"><h1 class="titulo"><img src="imgs/logotipo.png"></h1></a></li>
-                <li id="aqui"><a class="navbar-link" href="./login.html">Aulas</a></li>
-                <li> <a class="navbar-link" href="./login.html">Quiz</a> </li>
-                <li ><a class="navbar-link" href="./duvida.html">Fale Conosco</a></li>
+                <li><a class="navbar-link" href="sobrenos.html">Sobre nós</a></li>
+                <li ><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
             </ul>
-
         </div>
+    </div>
 
     </div>
 
@@ -36,120 +35,125 @@
 
     <div class="banner">
         <div class="container">
-            <div class="container2">
-                <div class="caixa_formulario">
-                    <h1>Cadastro</h1>
-                    <div class="formulario">
+            <div class="login-cadastro">
+                <div class="container2">
+                    <div class="caixa_formulario">
+                        
+                        <div class="formulario">
+                            <h1 style="text-align: center;">Cadastro</h1>
+                            <span>Nome:</span>
+                            <input id="name_input" type="name" placeholder="Seu nome">
+                            <span>Digite seu username:</span>
+                            <input id="username_input" type="name" placeholder="Seu nome">
+                            <span>E-mail:</span>
+                            <input id="email_input" type="email" placeholder="Seu E-mail">
+                            <span>Senha:</span>
+                            <input id="senha_input" type="password" placeholder="*****">
+                            <span>Confirme a senha:</span>
+                            <input id="confirmacaoSenha_input" type="password" placeholder="*****">
+                            
+                            <li class="check">
+                                <label><u style="display: flex;
+                                    flex-direction: column;
+                                    align-items: center;
+                                    width: 100%;">Concordo com os termos de uso. <input style="width: 32px;" type="checkbox" id="checkbox"></u>
+                                </label>
+                            </li>
     
-                        <span>Nome:</span>
-                        <input id="name_input" type="name" placeholder="Seu nome">
-                        <span>Digite seu username:</span>
-                        <input id="username_input" type="name" placeholder="Seu nome">
-                        <span>E-mail:</span>
-                        <input id="email_input" type="email" placeholder="Seu E-mail">
-                        <span>Senha:</span>
-                        <input id="senha_input" type="password" placeholder="*****">
-                        <span>Confirme a senha:</span>
-                        <input id="confirmacaoSenha_input" type="password" placeholder="*****">
-
-                        <li class="check">
-                            <input type="checkbox" id="checkbox">
-                            <label><u>Concordo com os termos de uso.</u>
-                            </label>
-                        </li>  
-
-                        <button onclick="cadastrar()">Cadastrar</button>
-                         
+                            <button onclick="cadastrar()">Cadastrar</button>
+                            <div class="alerta_erro">
+                                <div class="card_erro" id="cardErro">
+                                    <span id="mensagem_erro"></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="alerta_erro">
-                    <div class="card_erro" id="cardErro">
-                        <span id="mensagem_erro"></span>
-                    </div>
+                    <img class="div-imagem-login" src="imgs/imagem-login.jpg" alt="">
+
             </div>
         </div>
-    </div>
 
-    <div class="footer">
-        <div class="container">
-          <h4>Copyright by BoosChess &copy; 2023</h4>
-          <span class="version">v1.0.0</span>
+        <div class="footer">
+            <div class="container">
+                <h4>Copyright by BoosChess &copy; 2023</h4>
+                <span class="version">v1.0.0</span>
+            </div>
         </div>
-      </div>
 
 </body>
 
 </html>
 
 <script>
-    function cadastrar () {
+    function cadastrar() {
         var nome = name_input.value
         var email = email_input.value
         var senha = senha_input.value
         var username = username_input.value
         var confirmeSenha = confirmacaoSenha_input.value
         console.log(email)
-        
 
-    if (nome == ""|| email ==  "" || senha == "" || confirmeSenha == "" )   {
+
+        if (nome == "" || email == "" || senha == "" || confirmeSenha == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
-            setInterval(sumirMensagem,5000)
+            setInterval(sumirMensagem, 5000)
 
-        } else if(checkbox.checked == false) {
+        } else if (checkbox.checked == false) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "O termo de uso precisa ser assinado";
-            setInterval(sumirMensagem,5000)
-        }else if (email.indexOf('@') < 0) {
+            setInterval(sumirMensagem, 5000)
+        } else if (email.indexOf('@') < 0) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "O e-mail está com o formato inválido";
             setInterval(sumirMensagem, 5000)
         } else if (senha.length < 6) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "A senha precisa ter mais que 6 caracteres";
-            setInterval(sumirMensagem,5000)
-        }  else {
+            setInterval(sumirMensagem, 5000)
+        } else {
             window.location = "./login.html"
             fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                usernameServer: username, 
-                nomeServer: nome,
-                emailServer: email,
-                senhaServer: senha,
-            })
-        }).then(function (resposta) {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    usernameServer: username,
+                    nomeServer: nome,
+                    emailServer: email,
+                    senhaServer: senha,
+                })
+            }).then(function (resposta) {
 
-            console.log("resposta: ", resposta);
+                console.log("resposta: ", resposta);
 
-            if (resposta.ok) {
-                cardErro.style.display = "block";
+                if (resposta.ok) {
+                    cardErro.style.display = "block";
 
-                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+                    mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
-                setTimeout(() => {
-                    window.location = "login.html";
-                }, "2000")
+                    setTimeout(() => {
+                        window.location = "login.html";
+                    }, "2000")
 
-                limparFormulario();
-              
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-    }
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
+                    limparFormulario();
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }).catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+            });
         }
-    
+        function sumirMensagem() {
+            cardErro.style.display = "none"
+        }
+    }
 
-    
+
+
 </script>

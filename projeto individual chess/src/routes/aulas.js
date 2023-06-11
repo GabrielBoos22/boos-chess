@@ -28,4 +28,12 @@ router.get("/tempo-real/:idUsuario", function (req, res) {
     aulaController.buscarMedidasEmTempoReal(req, res);
 })
 
+router.get("/assistidas/:idUsuario", function (req, res) {
+    aulaController.buscarAulasAssistidas(req, res);
+})
+
+router.post("/excluir", function (req, res) {
+    aulaController.excluirAulasAssistidas(req, res);
+})
+
 module.exports = router;

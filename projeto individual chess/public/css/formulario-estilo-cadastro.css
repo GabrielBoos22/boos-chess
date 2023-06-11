@@ -1,8 +1,8 @@
 .caixa_formulario {
-    background: rgba(255, 255, 255, 0.808);
+    background: rgba(255, 255, 255, 0.8);
     opacity: 100%;
     width: 400px;
-    height: 550px;
+    height: 558px;
     color: black;
     display: flex;
     flex-direction: column;
@@ -11,15 +11,33 @@
     border-radius: 5px;
 }
 
+*{
+    font-family: "Exo 2", sans-serif;
+}
+
 .caixa_formulario h1 {
     font-size: 30px;
     color: black;
+}
+
+.login-cadastro{
+    display: flex;
+    flex-direction: row-reverse;
+    border: 2px solid #797373;
+}
+
+.div-imagem-login {
+    width: 400px;
+    height: 558px;
 }
 
 .formulario {
     display: flex;
     flex-direction: column;
     width: 270px;
+    height: 320px;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .formulario button {
@@ -38,6 +56,7 @@
 .formulario input {
     padding: 10px 15px;
     text-align: center;
+    width: 100%;
     border: 2px solid #a7a19c;
     border-radius: 10px;
 }
