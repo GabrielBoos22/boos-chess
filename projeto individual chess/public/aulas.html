@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,20 @@
     <script src="js/sessao.js"></script>
 
 </head>
+
 <body onload="validarSessao()">
 
     <div class="header">
         <div class="container">
             <ul class="navBar">
-                <li><a class="navbar-link" href="pesquisar.html"><img class="imagem-lupa" src="imgs/pesquisar.png"></a></li>
+                <li><a class="navbar-link" href="pesquisar.html"><img class="imagem-lupa" src="imgs/pesquisar.png"></a>
+                </li>
                 <!-- <li><a href="">Sobre Nós</a></li> -->
                 <li><a class="navbar-link" href="aulas.html">Aulas</a></li>
                 <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
                 <li><a class="navbar-link   " href="./index.html">
-                    <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
-                </a></li>
+                        <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
+                    </a></li>
                 <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
                 <li><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
                 <li><a href="login.html" onclick="sair()"><img src="imgs/sair.png" alt="sair"></a></li>
@@ -28,22 +31,24 @@
         </div>
     </div>
 
-    <div class="banner quiz" style="align-items: start;">
+    <div class="banner aulas" style="align-items: start;">
         <div class="level-componente">
             <div class="level-cabecalho">
-                <h2 class="level-titulo">Novo no Xadrez (Como Jogar)</h2>
+                <h2 class="level-titulo">Novo no Xadrez <span class="subtitulo">(Como Jogar)</span></h2>
             </div>
             <div class="level-conteudo">
                 <div class="curso">
                     <div class="conteudo" id="exibir_conteudo1">
-                        <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula1-img1.png" alt="Imagem">
                         <div class="div-concluido-pai">
-                            <div>
-                                <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            <div class="div-texto">
+                                <h1 class="titulo">Como as Peças se Movem</h1>
+                                <p id="imagem_conteudo">Conheca as peças de xadrez e como preparar o tabuleiro</p>
                             </div>
-                            
+
                             <div class="div-concluido">
-                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
                                 <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
                             </div>
                         </div>
@@ -51,11 +56,348 @@
                 </div>
                 <div class="curso">
                     <div class="conteudo" id="exibir_conteudo2">
-                        <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula1-img2.png" alt="Imagem">
                         <div class="div-concluido-pai">
-                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <div class="div-texto">
+                                <h1 class="titulo">Jogando Xadrez</h1>
+                                <p id="imagem_conteudo">Aprenda as regras básicas do xadrez e como jogar uma partida
+                                    inteira</p>
+                            </div>
                             <div class="div-concluido">
-                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level-componente">
+            <div class="level-cabecalho">
+                <h2 class="level-titulo">Iniciante <span class="subtitulo">(Fundamentos)</span></h2>
+            </div>
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo3">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula2-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Princípios da Abertura</h1>
+                                <p id="imagem_conteudo">Obtenha uma vantagem nos primeiros lances.</p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo4">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula2-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Vencendo a Partida</h1>
+                                <p id="imagem_conteudo">Termine a partida ao dar xeque-mate no seu oponente</p>
+                            </div>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level-conteudo">
+            <div class="curso">
+                <div class="conteudo" id="exibir_conteudo5">
+                    <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula2-img3.png" alt="Imagem">
+                    <div class="div-concluido-pai">
+                        <div class="div-texto">
+                            <h1 class="titulo">Capturando Peças</h1>
+                            <p id="imagem_conteudo">Mantenha os seus olhos abertos e capture mais peças</p>
+                        </div>
+
+                        <div class="div-concluido">
+                            <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                onclick="assistir1()">Assistir</button>
+                            <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="curso">
+                <div class="conteudo" id="exibir_conteudo6">
+                    <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula2-img4.png" alt="Imagem">
+                    <div class="div-concluido-pai">
+                        <div class="div-texto">
+                            <h1 class="titulo">Atacando o Rei</h1>
+                            <p id="imagem_conteudo">Vença a partida concentrando o seu ataque ao rei vulnerável</p>
+                        </div>
+                        <div class="div-concluido">
+                            <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                onclick="assistir2()">Assistir</button>
+                            <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level-conteudo">
+            <div class="curso" style="margin-top: 30px;">
+                <div class="conteudo" id="exibir_conteudo7">
+                    <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula2-img5.png" alt="Imagem">
+                    <div class="div-concluido-pai">
+                        <div class="div-texto">
+                            <h1 class="titulo">Primeiros Lances</h1>
+                            <p id="imagem_conteudo">Obtenha uma posição boa fazendo bons lances de abertura</p>
+                        </div>
+
+                        <div class="div-concluido">
+                            <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                onclick="assistir1()">Assistir</button>
+                            <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level-componente" style="margin-top: 30px;">
+            <div class="level-cabecalho">
+                <h2 class="level-titulo">Intermediário <span class="subtitulo">(Conceitos Chave)</span></h2>
+            </div>
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo8">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula3-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Extraia o Máximo Possível das Suas Peças</h1>
+                                <p id="imagem_conteudo">Explore as virtudes e fraquezas de cada peça</p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo9">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula3-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Compreendendo os Finais</h1>
+                                <p id="imagem_conteudo">Saiba o que fazer quando a maioria das peças deixou o tabuleiro
+                                </p>
+                            </div>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo10">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula3-img3.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Vencendo com Táticas</h1>
+                                <p id="imagem_conteudo">Surpreenda os seus oponentes com poderosos lances vitoriosos</p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo11">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula3-img4.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Lances forçados</h1>
+                                <p id="imagem_conteudo">Controle a partida calculando com alguns lances de antemão</p>
+                            </div>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-conteudo">
+                <div class="curso" style="margin-top: 30px;">
+                    <div class="conteudo" id="exibir_conteudo12">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula3-img5.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Lendo o tabuleiro</h1>
+                                <p id="imagem_conteudo">Olhe para o tabuleiro inteiro para poder escolher o melhor plano
+                                </p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="level-componente" style="margin-top: 30px;">
+            <div class="level-cabecalho">
+                <h2 class="level-titulo">Avançado <span class="subtitulo">(Assumindo Controle)
+                </span></h2>
+            </div>
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo13">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Aberturas Chave</h1>
+                                <p id="imagem_conteudo">Aprenda o que faz as aberturas mais populares serem fantásticas</p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo14">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Escolha o Melhor Lance</h1>
+                                <p id="imagem_conteudo">Treine para descobrir os planos e ideias certas.
+                                </p>
+                            </div>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo15">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img3.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Ativando as Suas Peças</h1>
+                                <p id="imagem_conteudo">Extraia o máximo possível de cada peça ao achar a sua melhor casa</p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo16">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img4.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Finais Avançados</h1>
+                                <p id="imagem_conteudo">Melhore o seu jogo de finais com estas técnicas vitoriosas</p>
+                            </div>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo17">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img5.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Atacando o Rei</h1>
+                                <p id="imagem_conteudo">Alvejar o rei e suplantar as suas defesas</p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo18">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img6.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Táticas Avançadas</h1>
+                                <p id="imagem_conteudo">Vença mais partidas com combinações bonitas do xadrez</p>
+                            </div>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="level-conteudo">
+                <div class="curso" style="margin-top: 30px;">
+                    <div class="conteudo" id="exibir_conteudo19">
+                        <img id="imagem_conteudo" class="imagem-conteudo" src="imgs/aula4-img7.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div class="div-texto">
+                                <h1 class="titulo">Padrões de Finais</h1>
+                                <p id="imagem_conteudo">Aprenda os temas críticos para acabar vencendo mais partidas
+                                </p>
+                            </div>
+
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo"
+                                    onclick="assistir1()">Assistir</button>
                                 <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
                             </div>
                         </div>
@@ -71,17 +413,19 @@
 
     <div class="footer">
         <div class="container">
-          <h4> Copyright by BoosChess &copy; 2023</h4>
-          <span class="version">v1.0.0</span>
+            <h4> Copyright by BoosChess &copy; 2023</h4>
+            <span class="version">v1.0.0</span>
         </div>
     </div>
 
 </body>
+
 </html>
 </body>
+
 </html>
 <script>
-    function assistir1(){
+    function assistir1() {
         imagem_conteudo.style = "display: none"
         exibir_conteudo1.innerHTML = `
                         <video controls class="video">
@@ -96,7 +440,7 @@
         exibir_conteudo1.classList.remove("conteudo");
     }
 
-    function assistir2(){
+    function assistir2() {
         imagem_conteudo.style = "display: none"
         exibir_conteudo2.innerHTML = `<video controls class="video">
                         <source src="video/PRT-NOV-notation-the-language-of-chess-l2x.mp4" type="video/mp4">
@@ -109,22 +453,29 @@
         exibir_conteudo2.classList.remove("conteudo");
     }
 
-    function voltar(){
+    function voltar() {
         exibir_conteudo1.innerHTML = ` <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
                         <div class="div-concluido-pai">
-                            <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            <div class="div-texto">
+                                <h1 class="titulo">Como as Peças se Movem</h1>
+                                <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            </div>
+                            
                             <div class="div-concluido">
                                 <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
                                 <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
                             </div>
                         </div>`
-        exibir_conteudo1.classList.add("conteudo") 
+        exibir_conteudo1.classList.add("conteudo")
     }
 
-    function voltar2(){
-        exibir_conteudo2.innerHTML = `<img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+    function voltar2() {
+        exibir_conteudo2.innerHTML = ` <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
                         <div class="div-concluido-pai">
-                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <div class="div-texto">
+                                <h1 class="titulo">Jogando Xadrez</h1>
+                                <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            </div>
                             <div class="div-concluido">
                                 <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
                                 <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">

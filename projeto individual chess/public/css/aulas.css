@@ -7,16 +7,36 @@
     margin-bottom: 50px;
 }
 
+.banner.aulas{
+  width: 100%;
+  height: 2300px;
+}
+
 .level-conteudo {
     display: flex;
     justify-content: center;
   }
   
+.subtitulo {
+  font-size: 1.0em;
+  color: #9e9999;
+}
+
+.div-texto {
+  max-height: 100px;
+}
+
 .div-concluido-pai{
     display: flex;
     flex-wrap: wrap;
     width: 180px;
     height: 126px;
+    align-content: space-around;  
+}
+
+.titulo {
+  font-size: 14px;
+  color: #fff;
 }
 
   .div-concluido{
@@ -27,8 +47,8 @@
   }
 
   .curso {
-    width: 350px;
-    height: 160px;
+    width: 370px;
+    height: 190px;
     background-color: rgb(34, 31, 31);
     margin: 10px;
   }
@@ -49,8 +69,8 @@
   }
   
  .conteudo .imagem-conteudo {
-    width: 130px;
-    height: 130px;
+    width: 160px;
+    height: 160px;
     margin-right: 10px;
   }
   
@@ -60,8 +80,8 @@
   }
 
   .video {
-    width: 350px;
-    height: 160px;
+    width: 370px;
+    height: 190px;
   }
 
   .green-button {
