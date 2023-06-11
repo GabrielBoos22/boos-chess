@@ -108,6 +108,9 @@ WHERE assistidas.fkUsuario = 1
 GROUP BY aulas.idAula;
 
 
+/*FAZER UM RANKING DE MAIORES ACERTOS ENTRE TODOS OS USUÁRIOS*/
+SELECT (acertos) AS 'Acertos', (erros) AS 'Erros', usuario.nome AS 'Nome', acertos / erros AS resultado FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
+JOIN quizes ON respostas.fkQuiz = quizes.idQuiz ORDER BY resultado DESC;
 
 
 
