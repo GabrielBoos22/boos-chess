@@ -98,7 +98,7 @@ function buscarUltimasMedidas(req, res) {
 
     // console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
 
-    medidaModel.buscarUltimasMedidas(idUsuario).then(function (resultado) {
+    aulaModel.buscarUltimasMedidas(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -118,7 +118,7 @@ function buscarMedidasEmTempoReal(req, res) {
 
     console.log(`Recuperando medidas em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
+    aulaModel.buscarMedidasEmTempoReal(idUsuario).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -135,5 +135,7 @@ module.exports = {
     entrar,
     cadastrar,
     listar,
-    testar
+    testar,
+    buscarMedidasEmTempoReal,
+    buscarUltimasMedidas
 }
