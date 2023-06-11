@@ -4,17 +4,18 @@
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 }
 
 .banner.aulas{
   width: 100%;
-  height: 2300px;
+  height: 3150px;
 }
 
 .level-conteudo {
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
   }
   
 .subtitulo {
