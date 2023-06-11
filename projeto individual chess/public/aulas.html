@@ -36,19 +36,28 @@
             <div class="level-conteudo">
                 <div class="curso">
                     <div class="conteudo" id="exibir_conteudo1">
-                        <img id="imagem_conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
-                        <div>
-                            <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
-                            <button class="green-button" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
+                        <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div>
+                                <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            </div>
+                            
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="curso">
                     <div class="conteudo" id="exibir_conteudo2">
-                        <img id="imagem_conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
-                        <div>
+                        <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
                             <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
-                            <button class="green-button" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -74,11 +83,15 @@
 <script>
     function assistir1(){
         imagem_conteudo.style = "display: none"
-        exibir_conteudo1.innerHTML = `<video controls class="video">
+        exibir_conteudo1.innerHTML = `
+                        <video controls class="video">
                         <source src="video/PRT-NOV-the-king-and-the-goal-m2q.mp4" type="video/mp4">
                         Seu navegador não suporta o elemento de vídeo.
                       </video>
+                      <div>
                       <button class="green-button" onclick="voltar()">Voltar</button>
+                      <button class="green-button" onclick="concluido1()">Marcar como concluído</button>
+                      </div>
                       `
         exibir_conteudo1.classList.remove("conteudo");
     }
@@ -89,16 +102,34 @@
                         <source src="video/PRT-NOV-notation-the-language-of-chess-l2x.mp4" type="video/mp4">
                         Seu navegador não suporta o elemento de vídeo.
                       </video>
-                      <button class="green-button" style="text-align: center" onclick="voltar2()"> Voltar </button>`
+                      <div>
+                      <button class="green-button" onclick="voltar2()">Voltar</button>
+                      <button class="green-button" onclick="concluido2()">Marcar como concluído</button>
+                      </div>`
         exibir_conteudo2.classList.remove("conteudo");
     }
 
-    function voltar2(){
-        imagem_conteudo.style = "display: block"
-        exibir_conteudo2.innerHTML = `<img id="imagem_conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
-                        <div>
-                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
-                            <button class="green-button" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+    function voltar(){
+        exibir_conteudo1.innerHTML = ` <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
                         </div>`
+        exibir_conteudo1.classList.add("conteudo") 
+    }
+
+    function voltar2(){
+        exibir_conteudo2.innerHTML = `<img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>`
+        exibir_conteudo2.classList.add("conteudo")
     }
 </script>

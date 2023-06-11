@@ -12,6 +12,20 @@
     justify-content: center;
   }
   
+.div-concluido-pai{
+    display: flex;
+    flex-wrap: wrap;
+    width: 180px;
+    height: 126px;
+}
+
+  .div-concluido{
+    display: flex;
+    text-align: center;
+    width: 140px;
+    height: 40px;
+  }
+
   .curso {
     width: 350px;
     height: 160px;
@@ -19,6 +33,11 @@
     margin: 10px;
   }
   
+  .botao-concluido{
+    width: 40px;
+    height: 40px;
+  }
+
   .curso{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
   }
@@ -29,7 +48,7 @@
     padding: 10px;
   }
   
- .conteudo img {
+ .conteudo .imagem-conteudo {
     width: 130px;
     height: 130px;
     margin-right: 10px;
@@ -56,4 +75,10 @@
   
   .green-button:hover {
     opacity: 0.8;
+  }
+
+  .voltar {
+    text-align: center;
+    margin-left: 134px;
+    margin-top: 10px;
   }
