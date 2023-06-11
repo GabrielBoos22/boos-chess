@@ -425,6 +425,58 @@
 
 </html>
 <script>
+
+    var idUsuario = sessionStorage.getItem("ID_USUARIO") 
+    console.log(idUsuario);
+
+    function concluido(elemento){
+        console.log(elemento)
+        console.log(elemento.getAttribute("value"))
+        
+        var idAula = elemento.getAttribute("value")
+        console.log(idAula, idUsuario)
+        fetch("/aula/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idAulaServer: idAula,
+                idUsuarioServer: idUsuario
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    // sessionStorage.EMAIL_USUARIO = json.email;
+                    // sessionStorage.NOME_USUARIO = json.nome;
+                    // sessionStorage.ID_USUARIO = json.idUsuario;
+
+                    // cardErro.style.display = "block";
+
+                    // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+
+                    // setTimeout(function () {
+                    //     window.location = "./quiz.html";
+                    // }, 1000); // apenas para exibir o loading
+
+                });
+
+            }
+        }).catch(function (erro) {
+            console.log(erro);
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "O Login está inválido";
+        })
+
+    }
+
     function assistir1() {
         imagem_conteudo.style = "display: none"
         exibir_conteudo1.innerHTML = `
@@ -434,7 +486,7 @@
                       </video>
                       <div>
                       <button class="green-button" onclick="voltar()">Voltar</button>
-                      <button class="green-button" onclick="concluido1()">Marcar como concluído</button>
+                      <button class="green-button" value="1" onclick="concluido(this)">Marcar como concluído</button>
                       </div>
                       `
         exibir_conteudo1.classList.remove("conteudo");
@@ -643,7 +695,7 @@
                       </video>
                       <div>
                       <button class="green-button" onclick="voltar2()">Voltar</button>
-                      <button class="green-button" onclick="concluido2()">Marcar como concluído</button>
+                      <button class="green-button" onclick="concluido2(this)">Marcar como concluído</button>
                       </div>`
         exibir_conteudo17.classList.remove("conteudo");
     }
