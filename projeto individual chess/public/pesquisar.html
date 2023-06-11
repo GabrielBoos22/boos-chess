@@ -104,7 +104,7 @@
                             // var bottom = 140;
                             for (var i = 0; i < json.length; i++) {
                                 if (i == 0) {
-                                    usuario_achado.innerHTML += `<p><a value="${json[i].idUsuario}"  href="relatorioUsuario.html" class="usuario-achado-texto" style="text-decoration: none;" onclick="pegarId(this)" ><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
+                                    usuario_achado.innerHTML = `<p><a value="${json[i].idUsuario}"  href="relatorioUsuario.html" class="usuario-achado-texto" style="text-decoration: none;" onclick="pegarId(this)" ><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
                                 } else {
                                     usuario_achado.innerHTML += `<p><a value="${json[i].idUsuario}"  href="relatorioUsuario.html" class="usuario-achado-texto" style="text-decoration: none;" onclick="pegarId(this)"><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
                                 }

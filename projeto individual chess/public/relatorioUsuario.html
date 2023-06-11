@@ -157,14 +157,14 @@
 
                     if(resposta[0].Acertos !== null && resposta[0].Erros !== null){
 
-                        porcentagemDeAcertos = (resposta[0].Acertos / resposta[0].Erros);
+                        porcentagemDeAcertos = (resposta[0].Acertos / (resposta[0].Erros + resposta[0].Acertos));
                     porcentagem_acertos.innerHTML = (porcentagemDeAcertos * 100).toFixed(2) + "%";
 
-                    if(porcentagemDeAcertos <= 1){
+                    if(porcentagemDeAcertos <= 0.4){
                         
                         nivel_conhecimento.innerHTML = "Iniciante"
 
-                    } else if (porcentagemDeAcertos > 1 && porcentagemDeAcertos <= 3){
+                    } else if (porcentagemDeAcertos > 0.4 && porcentagemDeAcertos < 0.8){
                         nivel_conhecimento.innerHTML = "Intermediário"
                     } else {
                         nivel_conhecimento.innerHTML = "Profissional"

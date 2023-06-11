@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/aulas.css">
+    <script src="js/sessao.js"></script>
+
+</head>
+<body onload="validarSessao()">
+
+    <div class="header">
+        <div class="container">
+            <ul class="navBar">
+                <li><a class="navbar-link" href="pesquisar.html"><img class="imagem-lupa" src="imgs/pesquisar.png"></a></li>
+                <!-- <li><a href="">Sobre Nós</a></li> -->
+                <li><a class="navbar-link" href="aulas.html">Aulas</a></li>
+                <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
+                <li><a class="navbar-link   " href="./index.html">
+                    <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
+                </a></li>
+                <li><a class="navbar-link" href="quiz.html">Quiz</a></li>
+                <li><a class="navbar-link" href="duvida.html">Fale Conosco</a></li>
+                <li><a href="login.html" onclick="sair()"><img src="imgs/sair.png" alt="sair"></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="banner quiz" style="align-items: start;">
+        <div class="level-componente">
+            <div class="level-cabecalho">
+                <h2 class="level-titulo">Novo no Xadrez (Como Jogar)</h2>
+            </div>
+            <div class="level-conteudo">
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo1">
+                        <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <div>
+                                <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            </div>
+                            
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="curso">
+                    <div class="conteudo" id="exibir_conteudo2">
+                        <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="banner">
+
+    </div>
+
+    <div class="footer">
+        <div class="container">
+          <h4> Copyright by BoosChess &copy; 2023</h4>
+          <span class="version">v1.0.0</span>
+        </div>
+    </div>
+
+</body>
+</html>
+</body>
+</html>
+<script>
+    function assistir1(){
+        imagem_conteudo.style = "display: none"
+        exibir_conteudo1.innerHTML = `
+                        <video controls class="video">
+                        <source src="video/PRT-NOV-the-king-and-the-goal-m2q.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                      </video>
+                      <div>
+                      <button class="green-button" onclick="voltar()">Voltar</button>
+                      <button class="green-button" onclick="concluido1()">Marcar como concluído</button>
+                      </div>
+                      `
+        exibir_conteudo1.classList.remove("conteudo");
+    }
+
+    function assistir2(){
+        imagem_conteudo.style = "display: none"
+        exibir_conteudo2.innerHTML = `<video controls class="video">
+                        <source src="video/PRT-NOV-notation-the-language-of-chess-l2x.mp4" type="video/mp4">
+                        Seu navegador não suporta o elemento de vídeo.
+                      </video>
+                      <div>
+                      <button class="green-button" onclick="voltar2()">Voltar</button>
+                      <button class="green-button" onclick="concluido2()">Marcar como concluído</button>
+                      </div>`
+        exibir_conteudo2.classList.remove("conteudo");
+    }
+
+    function voltar(){
+        exibir_conteudo1.innerHTML = ` <img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img1.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <p id="imagem_conteudo" >Conheca as peças de xadrez e como preparar o tabuleiro</p>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir1()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>`
+        exibir_conteudo1.classList.add("conteudo") 
+    }
+
+    function voltar2(){
+        exibir_conteudo2.innerHTML = `<img id="imagem_conteudo" class="imagem-conteudo"  src="imgs/aula1-img2.png" alt="Imagem">
+                        <div class="div-concluido-pai">
+                            <p id="imagem_conteudo" >Aprenda as regras básicas do xadrez e como jogar uma partida inteira</p>
+                            <div class="div-concluido">
+                                <button class="green-button" style="margin-right: 10px;" id="imagem-conteudo" onclick="assistir2()">Assistir</button>
+                                <img class="botao-concluido" src="imgs/aula-naovista.png" alt="">
+                            </div>
+                        </div>`
+        exibir_conteudo2.classList.add("conteudo")
+    }
+</script>
