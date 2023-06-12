@@ -104,8 +104,8 @@
 }
 
 .banner.pesquisa.container-usuario {
-    width: 60%;
-    height: 90vh;
+    width: 80%;
+    height: 120vh;
     margin: 10vh auto; /* Centraliza verticalmente com margens superiores e inferiores */
     border: 2px solid white; /* Define uma borda tracejada branca */
     box-sizing: border-box; /* Inclui a borda na largura e altura total da div */
