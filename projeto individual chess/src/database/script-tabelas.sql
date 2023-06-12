@@ -109,6 +109,11 @@ JOIN quizes ON respostas.fkQuiz = quizes.idQuiz WHERE usuario.idUsuario = 1;
 SELECT (sum(acertos)) AS 'Acertos', (sum(erros)) AS 'Erros' FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
 JOIN quizes ON respostas.fkQuiz = quizes.idQuiz WHERE usuario.idUsuario = 1;
 
+SELECT * FROM usuario;
+
+SELECT sum(acertos) AS 'Acertos', sum(erros) AS 'Erros', usuario.username, sum(acertos) / (sum(acertos) + sum(erros)) FROM respostas JOIN usuario ON respostas.fkUsuario = usuario.idUsuario 
+JOIN quizes ON respostas.fkQuiz = quizes.idQuiz GROUP BY usuario.username ORDER BY 4 DESC;
+
 /* PEGAR RELATÓRIO DE QUANTAS AULAS FORAM ASSISTIDAS EM CADA TIPO*/
 SELECT aulas.tipo, SUM(assistidas.qtdAulas) AS totalAulas
 FROM assistidas
