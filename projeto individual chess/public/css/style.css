@@ -42,7 +42,7 @@ li b {
 }
 
 ul h1 img {
-    width: 120px;
+    width: 200px;
     height: 100px;
 }
 
@@ -173,6 +173,11 @@ p span {
     color: #fff;
     display: flex;
     font-size: 15px;
+    position: relative;
+    margin-top: auto;
+    background-color: gray;
+    color: white;
+    padding: 10px;
 }
 
 .footer .container {
@@ -285,3 +290,6 @@ p span {
     vertical-align: top;
 }
 
+/* .footer.hidden {
+    display: none;
+} */

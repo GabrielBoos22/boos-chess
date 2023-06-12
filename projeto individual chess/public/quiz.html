@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/formulario-estilo.css">
+    <link rel="stylesheet" href="./css/quiz2.css">
     <script src="js/sessao.js"></script>
 
 </head>
@@ -29,15 +29,33 @@
     </div>
 
     <div class="banner quiz">
-        <div onclick="trocarParaQuizIniciante()" class="card-quiz">
-            <a><div id="quiz1">Quiz Iniciante</div></a>
-        </div>
-        <div onclick="trocarParaQuizIntermediario()" class="card-quiz">
-            <a><div id="quiz2">Quiz Intermediario</div></a>
-        </div>
-        <div onclick="trocarParaQuizAvancado()" class="card-quiz">
-            <a><div id="quiz3">Quiz Avançado</div></a>
-        </div>
+        <main>
+            <section class="about-section">
+                <h2>Quizes de Habilidade</h2>
+              <div class="text"  style="display: flex; justify-content: space-between;">
+                    <div class="quiz-entry" style="margin-right: 60px;">
+                        <a><div id="quiz1" class="titulo-bonito">Quiz Iniciante</div></a>
+                        <p>Teste seu conhecimento</p>
+                        <img src="imgs/peca-de-xadrez.png">
+                        <button class="botao-entrada" onclick="trocarParaQuizIniciante()">Iniciar Quiz</button>
+                      </div>
+                      <div class="quiz-entry" style="margin-right: 60px;">
+                        <a><div id="quiz1" class="titulo-bonito">Quiz Intermediario</div></a>
+                        <p>Teste seu conhecimento</p>
+                        <img src="imgs/torre-eiffel.png">
+                        <button class="botao-entrada" onclick="trocarParaQuizIntermediario()">Iniciar Quiz</button>
+                      </div>
+                      <div class="quiz-entry" style="margin-right: 60px;">
+                        <a><div id="quiz1" class="titulo-bonito">Quiz Avançado</div></a>
+                        <p>Teste seu conhecimento</p>
+                        <img src="imgs/coroa.png">
+                        <button class="botao-entrada" onclick="trocarParaQuizAvancado()">Iniciar Quiz</button>
+                      </div>
+                
+              </div>
+            </section>
+          </main>
+
     </div>
 
     <div class="banner">

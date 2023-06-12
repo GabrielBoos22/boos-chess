@@ -52,7 +52,7 @@
                 </header>
 
                 <div class='corpo'>
-                    <ol type='A' id='alternativas '>
+                    <ol type='A' id='alternativas'>
                         <li id='a' value='1A' class='respostas' onClick='verificarSeAcertou(this, this)'></li>
                         <li id='b' value='1B' class='respostas' onClick='verificarSeAcertou(this, this)'></li>
                         <li id='c' value='1C' class='respostas' onClick='verificarSeAcertou(this, this)'></li>
@@ -140,46 +140,96 @@
 
     const q2 = {
         numQuestao: 2,
-        pergunta: "Austral é o mesmo que...",
-        alternativaA: "Oeste",
-        alternativaB: "Sul",
-        alternativaC: "Norte",
-        alternativaD: "Leste",
-        correta: "Sul",
+        pergunta: "No jogo de xadrez, qual é a peça que anda em 'L'?",
+        alternativaA: "O cavalo",
+        alternativaB: "O rei",
+        alternativaC: "O bispo",
+        alternativaD: "O peão",
+        correta: "O cavalo",
     }
 
     const q3 = {
         numQuestao: 3,
-        pergunta: "Nascente é o mesmo que...",
-        alternativaA: "Sul",
-        alternativaB: "Leste",
-        alternativaC: "Oeste",
-        alternativaD: "Norte",
-        correta: "Leste",
+        pergunta: "O que significa a expressão 'xeque-mate'?",
+        alternativaA: "A rainha corre perigo",
+        alternativaB: "Propõe que o adversário abandone o jogo",
+        alternativaC: "Quem falou está desistindo da partida",
+        alternativaD: "Significa que o rei adversário está sob ataque e não tem como escapar",
+        correta: "Significa que o rei adversário está sob ataque e não tem como escapar",
     }
 
     const q4 = {
         numQuestao: 4,
-        pergunta: "Poente é o mesmo que...",
-        alternativaA: "Norte",
-        alternativaB: "Leste",
-        alternativaC: "Oeste",
-        alternativaD: "Sul",
-        correta: "Oeste",
+        pergunta: "Como o rei anda no xadrez?",
+        alternativaA: "Uma casa por vez e para qualquer lugar",
+        alternativaB: "Para qualquer lugar, pois ele é o rei",
+        alternativaC: "Ele pode andar três casas por vez",
+        alternativaD: "Nas diagonais",
+        correta: "Uma casa por vez e para qualquer lugar",
     }
 
     const q5 = {
         numQuestao: 5,
-        pergunta: "O Brasil se localiza em qual continente?",
-        alternativaA: "África",
-        alternativaB: "Europa",
-        alternativaC: "América",
-        alternativaD: "America",
-        correta: "América",
+        pergunta: "Quantas peças de xadrez cada jogador possui no início?",
+        alternativaA: "19",
+        alternativaB: "17",
+        alternativaC: "16",
+        alternativaD: "18",
+        correta: "16",
+    }
+
+    const q6 = {
+        numQuestao: 6,
+        pergunta: "Qual o objetivo do jogo de xadrez?",
+        alternativaA: "Capturar todos os peões",
+        alternativaB: "Comer todas as peças do adversário",
+        alternativaC: "Converter as peças inimigas usando o bispo",
+        alternativaD: "Deixar o rei do oponente sem movimentos válidos e em xeque",
+        correta: "Deixar o rei do oponente sem movimentos válidos e em xeque",
+    }
+
+    const q7 = {
+        numQuestao: 7,
+        pergunta: "Como o bispo anda?",
+        alternativaA: "Na horizontal e na vertical",
+        alternativaB: "Em 'B'",
+        alternativaC: "Na diagonal",
+        alternativaD: "Uma casa por vez",
+        correta: "Na diagonal",
+    }
+
+    const q8 = {
+        numQuestao: 8,
+        pergunta: "Qual peça pode-se movimentar apenas na horizontal e na vertical?",
+        alternativaA: "Rei",
+        alternativaB: "Bispo",
+        alternativaC: "Peao",
+        alternativaD: "Torre",
+        correta: "Torre",
+    }
+
+    const q9 = {
+        numQuestao: 9,
+        pergunta: "Qual a peça mais valorizada depois do rei?",
+        alternativaA: "Cavalo",
+        alternativaB: "Torre",
+        alternativaC: "Bispo",
+        alternativaD: "Rainha",
+        correta: "Rainha",
+    }
+
+    const q10 = {
+        numQuestao: 10,
+        pergunta: "O tabuleiro de xadrez é dividido em quantas casas?",
+        alternativaA: "64",
+        alternativaB: "32",
+        alternativaC: "54",
+        alternativaD: "72",
+        correta: "64",
     }
 
     // CONSTANTE COM UM ARRAY DE OBJETOS COM TODAS AS QUESTOES
-    const questoes = [q0, q1, q2, q3, q4, q5]
+    const questoes = [q0, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
 
     let numero = document.querySelector('#numero')
     let total = document.querySelector('#total')

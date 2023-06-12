@@ -93,7 +93,7 @@
 .banner.pesquisa {
     width: 60%;
     height: 60vh;
-    background-color: #b0aeaeb7;
+    background-color: #363636b7;
     margin: 10vh auto; /* Centraliza verticalmente com margens superiores e inferiores */
     border: 2px dashed white; /* Define uma borda tracejada branca */
     box-sizing: border-box; /* Inclui a borda na largura e altura total da div */
