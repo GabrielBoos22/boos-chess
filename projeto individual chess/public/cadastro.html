@@ -94,12 +94,15 @@
         var confirmeSenha = confirmacaoSenha_input.value
         console.log(email)
 
-
         if (nome == "" || email == "" || senha == "" || confirmeSenha == "") {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "Os campos precisam ser preenchidos";
             setInterval(sumirMensagem, 5000)
 
+        } else if (senha !== confirmeSenha){
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "As senhas não coincidem";
+            setInterval(sumirMensagem, 5000)
         } else if (checkbox.checked == false) {
             cardErro.style.display = "block"
             mensagem_erro.innerHTML = "O termo de uso precisa ser assinado";
