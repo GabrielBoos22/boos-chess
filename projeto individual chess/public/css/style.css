@@ -242,6 +242,18 @@ p span {
     margin-right: 10%;
 }
 
+.card_acerto {
+    display: none;
+    background-color: #46ff05;
+    color: black;
+    width: 230px;
+    margin-top: 3%;
+    border-radius: 10px;
+    border: #000000 3px solid;
+    padding: 10px;
+    margin-right: 10%;
+}
+
 .card_erro #mensagem_erro {
     font-weight: 500;
     font-size: 20px;
