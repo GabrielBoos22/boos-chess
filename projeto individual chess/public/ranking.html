@@ -6,6 +6,7 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/aulas.css">
+    <link rel="stylesheet" href="./css/ranking.css">
     <script src="js/sessao.js"></script>
 
 </head>
@@ -16,7 +17,7 @@
             <ul class="navBar">
                 <li><a class="navbar-link" href="pesquisar.html"><img class="imagem-lupa" src="imgs/pesquisar.png"></a></li>
                 <!-- <li><a href="">Sobre Nós</a></li> -->
-                <li><a class="navbar-link" href="aulas.html">Aulas</a></li>
+                <li><a class="sssssnavbar-link" href="aulas.html">Aulas</a></li>
                 <li><a class="navbar-link" href="aulas.html">Pesquisa</a></li>
                 <li><a class="navbar-link   " href="./index.html">
                     <h1 class="titulo"><img src="imgs/logotipo.png"></h1>
@@ -29,7 +30,16 @@
     </div>
 
     <div class="banner quiz">
-     
+        <div class="ranking">
+            <h1 class="titulo-ranking">Ranking dos Usuários</h1>
+            <div id="jogadores">
+                <div class="jogador">
+                    <div id="div_classificacao" class="classificacao">1º</div>
+                    <img src="imgs/usuario-icon.png" class="imagem-usuario">
+                    <div id="div_nome" class="nome">ruanito123</div>
+                 </div>
+            </div>
+        </div>
     </div>
 
     <div class="banner">
@@ -48,5 +58,67 @@
 </body>
 </html>
 <script>
-  
+  fetch(`/ranking/`).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        // usuario_achado.style= 'display: flex'
+
+                        if (json.length > 1) {
+                            // var bottom = 140;
+
+                            // for (var i = 0; i < json.length; i++) {
+                            //     if (i == 0) {
+                            //         usuario_achado.innerHTML = `<p><a value="${json[i].idUsuario}"  href="relatorioUsuario.html" class="usuario-achado-texto" style="text-decoration: none;" onclick="pegarId(this)" ><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
+                            //     } else {
+                            //         usuario_achado.innerHTML += `<p><a value="${json[i].idUsuario}"  href="relatorioUsuario.html" class="usuario-achado-texto" style="text-decoration: none;" onclick="pegarId(this)"><img src='imgs/usuario-icon.png'> ${json[i].username}</a></p> `
+                            //     }
+                            //     // bottom -= 20
+                            //     console.log("é maior que 1")
+                            // }
+
+                        } else {
+                            console.log("é menor ou igual a 1")
+                            console.log(json)
+                            // var id = json[0].idUsuario  
+                            // var username = json[0].username 
+                            // sessionStorage.setItem('ID_PESQUISADO', id)
+                            // sessionStorage.setItem('USERNAME_PESQUISADO', username)
+                            // usuario_achado.innerHTML = `<p><a href="relatorioUsuario.html" class="usuario-achado-texto" style="text-decoration: none;"><img src='imgs/usuario-icon.png'> ${json[0].username}</a></p>`
+                             
+                        }
+                        // sessionStorage.EMAIL_USUARIO = json.email;
+                        // sessionStorage.NOME_USUARIO = json.nome;
+                        // sessionStorage.ID_USUARIO = json.idUsuario;
+
+                        // cardErro.style.display = "none";
+
+                        // mensagem_erro.innerHTML = "Login realizado com sucesso! Redirecionando para tela de Login...";
+
+                        // setTimeout(function () {
+                        //     window.location = "./quiz.html";
+                        // }, 1000); // apenas para exibir o loading
+
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao buscar os usuários");
+
+                    // cardErro.style.display = "block"
+                    // mensagem_erro.innerHTML = "Nenhum usuário foi encontrado";
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+                // cardErro.style.display = "block"
+                // mensagem_erro.innerHTML = "Nenhum usuário foi encontrado.";
+            })
 </script>

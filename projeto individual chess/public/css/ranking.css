@@ -1,0 +1,58 @@
+.ranking{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.jogador{
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(215, 215, 215);
+    border: 2px solid #0d0d0d;
+    border-radius: 5px;
+    width: 450px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.imagem-usuario{
+    width: 32px;
+    height: 32px;
+    margin-right: 20px;
+}
+
+.nome{  
+    width: 200px;
+    height: 70px;
+    margin-top: 18px;
+    font-size: 32px;
+}
+
+.classificacao {
+    width: 50px;
+    height: 70px;
+    margin-right: 20px;
+    font-size: 32px;
+    margin-top: 16px;
+}
+
+.titulo-ranking{
+    font-size: 36px;
+    color: #0d0d0d;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background-color: rgb(215, 215, 215);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 4px;
+    padding: 10px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #0d0d0d;
+    border-image: initial;
+    border-radius: 5px;
+}
